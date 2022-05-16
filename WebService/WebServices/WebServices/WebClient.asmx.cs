@@ -96,7 +96,7 @@ namespace WebServices
 
             sqlConnection.Open();
 
-            SqlCommand createReservation = new SqlCommand("INSERT INTO Reservation (UserId, CinemaId, MovieId, Time, NumberOfSeats) VALUES (@userId, @cinemaId, @movieId, @time, @numberOfSeats)", sqlConnection);
+            SqlCommand createReservation = new SqlCommand("INSERT INTO Reservations (UserId, CinemaId, MovieId, Time, NumberOfSeats) VALUES (@userId, @cinemaId, @movieId, @time, @numberOfSeats)", sqlConnection);
             createReservation.Parameters.AddWithValue("@userId", userId);
             createReservation.Parameters.AddWithValue("@cinemaId", cinemaId);
             createReservation.Parameters.AddWithValue("@movieId", movieId);
@@ -120,15 +120,61 @@ namespace WebServices
         }
 
         [WebMethod]
-        public List<string> GetAllReservationsByClient(int clientId)
+        public List<string> GetAllReservationsByUser(int userId)
         {
-            throw new NotImplementedException();
+            var reservationList = new List<string>();
+
+            InitializeDatabseConnection();
+
+            var reservations = reservationsDataSet.Tables["Reservations"].Rows;
+
+            foreach(DataRow reservation in reservations)
+            {
+                var currentReservationId = int.Parse(reservation.ItemArray[0].ToString());
+                var currentReservationUserId = int.Parse(reservation.ItemArray[1].ToString());
+                var currentReservationMovieId = int.Parse(reservation.ItemArray[3].ToString());
+                var currentReservationTime = DateTime.Parse(reservation.ItemArray[4].ToString());
+                var currentReservationNumberOfSeats = int.Parse(reservation.ItemArray[5].ToString());
+
+                if(userId == currentReservationUserId)
+                {
+                    var movieName = GetMovieNameById(currentReservationMovieId);
+                    var time = currentReservationTime.ToShortTimeString();
+                    var date = currentReservationTime.ToLongDateString();
+
+                    var resultEntry = $"{currentReservationId};{movieName};{date};{time};{currentReservationNumberOfSeats}";
+
+                    reservationList.Add(resultEntry);
+                }
+            }
+
+            return reservationList;
         }
 
         [WebMethod]
         public bool DeleteReservation(int reservationId)
         {
-            throw new NotImplementedException();
+            InitializeDatabseConnection();
+
+            sqlConnection.Open();
+
+            SqlCommand delete = new SqlCommand("DELETE FROM Reservations WHERE ReservationId = @reservationId", sqlConnection);
+            delete.Parameters.AddWithValue("@reservationId", reservationId);
+
+            try
+            {
+                delete.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
 
         private bool IsNotAvailable(int cinemaId, DateTime time, int numberOfSeats)
@@ -189,6 +235,29 @@ namespace WebServices
             }
 
             return occupiedSeats;
+        }
+
+        private string GetMovieNameById(int movieId)
+        {
+            string movieName = "";
+
+            InitializeDatabseConnection();
+
+            var movies = moviesDataSet.Tables["Movies"].Rows;
+
+            foreach(DataRow movie in movies)
+            {
+                var currentMovieId = int.Parse(movie.ItemArray[0].ToString());
+                var currentMovieName = movie.ItemArray[1].ToString();
+
+                if(currentMovieId == movieId)
+                {
+                    movieName = currentMovieName;
+                    break;
+                }
+            }
+
+            return movieName;
         }
 
         private void InitializeDatabseConnection()
