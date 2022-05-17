@@ -70,13 +70,66 @@ namespace WebServices
         [WebMethod(Description = "Returns all movies available in the selected day")]
         public List<string> GetAllMoviesDetailsByDay(int cinemaId, string weekDay)
         {
-            throw new NotImplementedException();
+            var availableMovies = new List<string>();
+
+            InitializeDatabseConnection();
+
+            var scheduleEntries = schedulesDataSet.Tables["Schedules"].Rows;
+
+            foreach (DataRow scheduleEntry in scheduleEntries)
+            {
+                var currentScheduleCinemaId = int.Parse(scheduleEntry.ItemArray[4].ToString());
+                var currentScheduleWeekDay = scheduleEntry.ItemArray[3].ToString();
+                var currentScheduleMovieId = int.Parse(scheduleEntry.ItemArray[1].ToString());
+                var currentScheduleTime = scheduleEntry.ItemArray[2].ToString();
+
+                if (currentScheduleCinemaId == cinemaId && currentScheduleWeekDay.Equals(weekDay))
+                {
+                    var movieDetails = GetMovieDetailsById(currentScheduleMovieId);
+                    movieDetails += ";" + currentScheduleTime;
+
+                    availableMovies.Add(movieDetails);
+                }
+            }
+
+            return availableMovies;
         }
 
         [WebMethod(Description = "Returns all details regarding a certain movie, searched by name")]
         public List<string> GetAllMoviesDetailsByName(int cinemaId, string name)
         {
-            throw new NotImplementedException();
+            var detailsAndAvailableDates = new List<string>();
+            var detailsCheck = false;
+
+            InitializeDatabseConnection();
+
+            var scheduleEntries = schedulesDataSet.Tables["Schedules"].Rows;
+
+            foreach (DataRow scheduleEntry in scheduleEntries)
+            {
+                var currentScheduleCinemaId = int.Parse(scheduleEntry.ItemArray[4].ToString());
+                var currentScheduleWeekDay = scheduleEntry.ItemArray[3].ToString();
+                var currentScheduleMovieId = int.Parse(scheduleEntry.ItemArray[1].ToString());
+                var currentScheduleTime = scheduleEntry.ItemArray[2].ToString();
+                var currentScheduleMovieName = GetMovieNameById(currentScheduleMovieId);
+
+                if (currentScheduleCinemaId == cinemaId && currentScheduleMovieName.Equals(name))
+                {
+                    if (!detailsCheck)
+                    {
+                        var movieDetails = GetMovieDetailsById(currentScheduleMovieId);
+
+                        detailsAndAvailableDates.Add(movieDetails);
+                        detailsCheck = true;
+                    }
+                    
+                    var availableDate = currentScheduleWeekDay + ";" + currentScheduleTime;
+
+                    detailsAndAvailableDates.Add(availableDate);
+                }
+            }
+
+            return detailsAndAvailableDates;
         }
 
         [WebMethod(Description = "Makes an entry in the reservations table, containing references to the user, the cinema, the movie and its details")]
@@ -137,7 +190,7 @@ namespace WebServices
                 var currentReservationTime = DateTime.Parse(reservation.ItemArray[4].ToString());
                 var currentReservationNumberOfSeats = int.Parse(reservation.ItemArray[5].ToString());
 
-                if(userId == currentReservationUserId)
+                if(userId == currentReservationUserId && currentReservationTime > DateTime.Now)
                 {
                     var movieName = GetMovieNameById(currentReservationMovieId);
                     var time = currentReservationTime.ToShortTimeString();
@@ -263,6 +316,38 @@ namespace WebServices
             }
 
             return movieName;
+        }
+
+        private string GetMovieDetailsById(int movieId)
+        {
+            string movieDetails = "";
+
+            InitializeDatabseConnection();
+
+            var movies = moviesDataSet.Tables["Movies"].Rows;
+
+            foreach (DataRow movie in movies)
+            {
+                var currentMovieId = int.Parse(movie.ItemArray[0].ToString());
+                var currentMovieName = movie.ItemArray[1].ToString();
+                var currentMovieDirector = movie.ItemArray[2].ToString();
+                var currentMovieCast = movie.ItemArray[3].ToString();
+                var currentMovieDuration = int.Parse(movie.ItemArray[4].ToString());
+                var currentMovieGenre = movie.ItemArray[5].ToString();
+                var currentMoviePrice = int.Parse(movie.ItemArray[6].ToString());
+                var currentMovieRestrictions = movie.ItemArray[7].ToString();
+                var currentMovieDescription = movie.ItemArray[8].ToString();
+                var currentMovieRating = double.Parse(movie.ItemArray[9].ToString());
+                var currentMovieReleaseDate = DateTime.Parse(movie.ItemArray[10].ToString());
+
+                if (currentMovieId == movieId)
+                {
+                    movieDetails = $"{currentMovieName};{currentMovieDirector};{currentMovieCast};{currentMovieDuration};{currentMovieGenre};{currentMoviePrice};{currentMovieRestrictions};{currentMovieDescription};{currentMovieRating};{currentMovieReleaseDate}";
+                    break;
+                }
+            }
+
+            return movieDetails;
         }
 
         [Description("Establishes the connection with the database")]
