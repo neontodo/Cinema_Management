@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -32,9 +33,9 @@ namespace WebServices
 
             var loginRows = loginDataSet.Tables["Login"].Rows;
 
-            foreach(DataRow loginRow in loginRows)
+            foreach (DataRow loginRow in loginRows)
             {
-                if(loginRow.ItemArray[1].ToString().Equals(username) && loginRow.ItemArray[2].ToString().Equals(password))
+                if (loginRow.ItemArray[1].ToString().Equals(username) && loginRow.ItemArray[2].ToString().Equals(password))
                 {
                     userId = int.Parse(loginRow.ItemArray[0].ToString());
                     break;
@@ -44,7 +45,7 @@ namespace WebServices
             return userId;
         }
 
-        [WebMethod]
+        [WebMethod(Description = "By the ID of the user we check wether the user is an admin")]
         public bool IsEmployee(int userId)
         {
             bool isEmployee = false;
@@ -65,7 +66,7 @@ namespace WebServices
             return isEmployee;
         }
 
-        [WebMethod]
+        [WebMethod(Description = "By the ID of the user we check wether the user is a client")]
         public bool IsClient(int userId)
         {
             bool isClient = false;
@@ -86,7 +87,7 @@ namespace WebServices
             return isClient;
         }
 
-        [WebMethod]
+        [WebMethod(Description = "By making use of a given list containing the information given by the user correctly, may create an account which will further be inserted in the database")]
         public bool CreateAccount(List<string> details)
         {
             var username = details.ElementAt(0);
@@ -116,6 +117,7 @@ namespace WebServices
             return false;
         }
 
+        [Description("Checker, to see if the new user is trying to create a new account with a username already in use (owned by another already existing account)")]
         private bool IsUsernameNotTaken(string username)
         {
             var isUsernameNotTaken = true;
@@ -124,7 +126,7 @@ namespace WebServices
 
             var users = loginDataSet.Tables["Login"].Rows;
 
-            foreach(DataRow user in users)
+            foreach (DataRow user in users)
             {
                 if (user.ItemArray[1].ToString().Equals(username))
                 {
@@ -136,6 +138,7 @@ namespace WebServices
             return isUsernameNotTaken;
         }
 
+        [Description("Proceeds with the insertion of the username and password, used in order to create an account, in the database, table ''Login'' ")]
         private bool CreateLoginEntry(string username, string password)
         {
             InitializeDatabseConnection();
@@ -162,6 +165,7 @@ namespace WebServices
             }
         }
 
+        [Description("Proceeds with the insertion of the user's introduced personal data and stores them in the database")]
         private bool CreateClientEntry(List<string> details)
         {
             var username = details.ElementAt(0);
@@ -217,6 +221,7 @@ namespace WebServices
             }
         }
 
+        [Description("The possibility of removing an account from the database")]
         private bool RollbackLoginEntry(string username, string password)
         {
             InitializeDatabseConnection();
@@ -243,6 +248,7 @@ namespace WebServices
             }
         }
 
+        [Description("Establishes the connection with the database")]
         private void InitializeDatabseConnection()
         {
             sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";

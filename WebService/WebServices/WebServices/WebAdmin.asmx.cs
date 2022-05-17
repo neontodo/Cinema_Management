@@ -17,60 +17,61 @@ namespace WebServices
     public class WebAdmin : System.Web.Services.WebService
     {
 
-        [WebMethod]
+        [WebMethod(Description ="Returns all available information regarding all movies")]
         public List<string> GetAllMoviesDetails()
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Makes an insertion into the database for a movie and all its details")]
         public bool AddMovie(List<string> details)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Modifies the details of a movie")]
         public bool UpdateMovie(List<string> details, int movieId)
         {
             throw new NotImplementedException();
         }
 
+        [WebMethod(Description ="Deletes a single movie entry from the database")]
         public bool DeleteMovie(int movieId)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Returns all shifts of the employees as well as their names")]
         public List<string> GetAllWorkShifts(int cinemaId)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Makes an entry in the database for a workshift of an already existing employee")]
         public bool AddWorkShift(List<string> details)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Applies changes to the schedule held by an employee")]
         public bool UpdateWorkShift(List<string> details, int workShiftId)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Deletes the workshift of an employee")]
         public bool DeleteWorkShift(int workShiftId)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Gets the entire schedule of a said cinema")]
         public List<string> GetAllSchedulesByCinema(int cinemaId)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Applies modifications to the schedule of a certain cinema")]
         public bool UpdateSchedules(List<string> details, int scheduleId)
         {
             throw new NotImplementedException();

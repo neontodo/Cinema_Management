@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace WebServices
         private DataSet schedulesDataSet;
         private DataSet moviesDataSet;
 
-        [WebMethod]
+        [WebMethod(Description = "Makes a call to the database to have access to all cinemas available")]
         public List<string> GetAllCinemas()
         {
             List<string> cinemaLocations = new List<string>();
@@ -43,7 +44,7 @@ namespace WebServices
             return cinemaLocations;
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Offers a reference(id) to the cinema in the region selected by the user")]
         public int GetCinemaByLocation(string cinemaLocation)
         {
             int cinemaId = -1;
@@ -66,19 +67,19 @@ namespace WebServices
             return cinemaId;
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Returns all movies available in the selected day")]
         public List<string> GetAllMoviesDetailsByDay(int cinemaId, string weekDay)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Returns all details regarding a certain movie, searched by name")]
         public List<string> GetAllMoviesDetailsByName(int cinemaId, string name)
         {
             throw new NotImplementedException();
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Makes an entry in the reservations table, containing references to the user, the cinema, the movie and its details")]
         public bool CreateReservation(List<string> details)
         {
             var userId = int.Parse(details.ElementAt(0));
@@ -119,7 +120,7 @@ namespace WebServices
             }
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Makes a call and receives all entries regarding the existing reservations at that point in time")]
         public List<string> GetAllReservationsByUser(int userId)
         {
             var reservationList = new List<string>();
@@ -151,7 +152,7 @@ namespace WebServices
             return reservationList;
         }
 
-        [WebMethod]
+        [WebMethod(Description ="Admins have the possibility to remove already existing reservations")]
         public bool DeleteReservation(int reservationId)
         {
             InitializeDatabseConnection();
@@ -177,6 +178,7 @@ namespace WebServices
             }
         }
 
+        [Description("Checks wether the attempted reservation may be done, taking into consideration the number of seats left in the said cinema")]
         private bool IsNotAvailable(int cinemaId, DateTime time, int numberOfSeats)
         {
             var cinemaCapacity = GetCinemaCapacityById(cinemaId);
@@ -191,6 +193,7 @@ namespace WebServices
             return false;
         }
 
+        [Description("Makes a call to the database and returns the maximum number of seats available for a cinema")]
         private int GetCinemaCapacityById(int cinemaId)
         {
             var capacity = -1;
@@ -214,6 +217,7 @@ namespace WebServices
             return capacity;
         }
 
+        [Description("Returns the remaining number of seata still available, taking into account all the reservations made")]
         private int CountOccupiedSeats(int cinemaId, DateTime time)
         {
             var occupiedSeats = 0;
@@ -237,6 +241,7 @@ namespace WebServices
             return occupiedSeats;
         }
 
+        [Description("Returns the name of the movie by using a reference to its id")]
         private string GetMovieNameById(int movieId)
         {
             string movieName = "";
@@ -260,6 +265,7 @@ namespace WebServices
             return movieName;
         }
 
+        [Description("Establishes the connection with the database")]
         private void InitializeDatabseConnection()
         {
             sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
