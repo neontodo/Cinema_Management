@@ -89,7 +89,7 @@ namespace ServiceTest
             //username and password for account
             string username = "test";
             string password = "test";
-            List<string> details = new List<string>();
+            ServiceReference1.ArrayOfString details = new ServiceReference1.ArrayOfString();
             details.Add(username);
             details.Add(password);
 
