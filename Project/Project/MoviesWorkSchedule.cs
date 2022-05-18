@@ -12,9 +12,14 @@ namespace Project
 {
     public partial class MoviesWorkSchedule : Form
     {
-        public MoviesWorkSchedule()
+        private readonly int userId;
+        private readonly First_Page first_Page;
+
+        public MoviesWorkSchedule(int userId, First_Page first_Page)
         {
             InitializeComponent();
+            this.userId = userId;
+            this.first_Page = first_Page;
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -35,6 +40,12 @@ namespace Project
         private void buttonUpdateM_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonExitM_Click(object sender, EventArgs e)
+        {
+            first_Page.Show();
+            Close();
         }
     }
 }

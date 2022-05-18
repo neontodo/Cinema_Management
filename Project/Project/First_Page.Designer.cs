@@ -95,6 +95,7 @@ namespace Project
             this.textBoxPassword.Location = new System.Drawing.Point(350, 367);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(212, 22);
             this.textBoxPassword.TabIndex = 4;
             // 

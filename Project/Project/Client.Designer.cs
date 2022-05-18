@@ -32,7 +32,7 @@ namespace Project
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.selectCityButton = new System.Windows.Forms.Button();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -62,18 +62,19 @@ namespace Project
             this.comboBox1.Size = new System.Drawing.Size(194, 24);
             this.comboBox1.TabIndex = 1;
             // 
-            // button1
+            // selectCityButton
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(338, 248);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 55);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Select";
-            this.button1.UseVisualStyleBackColor = false;
+            this.selectCityButton.BackColor = System.Drawing.Color.DarkOrange;
+            this.selectCityButton.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
+            this.selectCityButton.ForeColor = System.Drawing.Color.White;
+            this.selectCityButton.Location = new System.Drawing.Point(338, 248);
+            this.selectCityButton.Margin = new System.Windows.Forms.Padding(4);
+            this.selectCityButton.Name = "selectCityButton";
+            this.selectCityButton.Size = new System.Drawing.Size(143, 55);
+            this.selectCityButton.TabIndex = 2;
+            this.selectCityButton.Text = "Select";
+            this.selectCityButton.UseVisualStyleBackColor = false;
+            this.selectCityButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonLogOut
             // 
@@ -87,6 +88,7 @@ namespace Project
             this.buttonLogOut.TabIndex = 3;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
+            this.buttonLogOut.Click += new System.EventHandler(this.buttonLogOut_Click);
             // 
             // groupBox1
             // 
@@ -95,7 +97,7 @@ namespace Project
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.buttonLogOut);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.selectCityButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkOrange;
             this.groupBox1.Location = new System.Drawing.Point(111, 72);
@@ -140,7 +142,7 @@ namespace Project
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button selectCityButton;
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;

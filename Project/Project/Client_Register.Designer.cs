@@ -39,15 +39,15 @@ namespace Project
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxConPassword = new System.Windows.Forms.TextBox();
+            this.textBoxPhone = new System.Windows.Forms.TextBox();
+            this.textBoxBirthDate = new System.Windows.Forms.TextBox();
             this.SignUp = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxConfirmPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -168,28 +168,27 @@ namespace Project
             this.textBoxEmail.Size = new System.Drawing.Size(485, 24);
             this.textBoxEmail.TabIndex = 8;
             // 
-            // textBoxPassword
+            // textBoxPhone
             // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPassword.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(247, 411);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(485, 24);
-            this.textBoxPassword.TabIndex = 9;
+            this.textBoxPhone.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPhone.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPhone.Location = new System.Drawing.Point(247, 411);
+            this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPhone.Name = "textBoxPhone";
+            this.textBoxPhone.Size = new System.Drawing.Size(485, 24);
+            this.textBoxPhone.TabIndex = 9;
             // 
-            // textBoxConPassword
+            // textBoxBirthDate
             // 
-            this.textBoxConPassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxConPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxConPassword.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConPassword.Location = new System.Drawing.Point(247, 461);
-            this.textBoxConPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBoxConPassword.Name = "textBoxConPassword";
-            this.textBoxConPassword.Size = new System.Drawing.Size(485, 24);
-            this.textBoxConPassword.TabIndex = 10;
+            this.textBoxBirthDate.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxBirthDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBirthDate.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBirthDate.Location = new System.Drawing.Point(247, 461);
+            this.textBoxBirthDate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxBirthDate.Name = "textBoxBirthDate";
+            this.textBoxBirthDate.Size = new System.Drawing.Size(485, 24);
+            this.textBoxBirthDate.TabIndex = 10;
             // 
             // SignUp
             // 
@@ -230,27 +229,29 @@ namespace Project
             this.label3.TabIndex = 13;
             this.label3.Text = "Confirm Password:";
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(247, 510);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(485, 24);
-            this.textBox1.TabIndex = 14;
+            this.textBoxPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPassword.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(247, 510);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(485, 24);
+            this.textBoxPassword.TabIndex = 14;
             // 
-            // textBox2
+            // textBoxConfirmPassword
             // 
-            this.textBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(247, 559);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(485, 24);
-            this.textBox2.TabIndex = 15;
+            this.textBoxConfirmPassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxConfirmPassword.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConfirmPassword.Location = new System.Drawing.Point(247, 559);
+            this.textBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
+            this.textBoxConfirmPassword.PasswordChar = '*';
+            this.textBoxConfirmPassword.Size = new System.Drawing.Size(485, 24);
+            this.textBoxConfirmPassword.TabIndex = 15;
             // 
             // label4
             // 
@@ -264,16 +265,16 @@ namespace Project
             this.label4.TabIndex = 16;
             this.label4.Text = "Username:";
             // 
-            // textBox3
+            // textBoxUserName
             // 
-            this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(247, 234);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(485, 24);
-            this.textBox3.TabIndex = 17;
+            this.textBoxUserName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUserName.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUserName.Location = new System.Drawing.Point(247, 234);
+            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(485, 24);
+            this.textBoxUserName.TabIndex = 17;
             // 
             // panel1
             // 
@@ -379,15 +380,15 @@ namespace Project
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBoxUserName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxConfirmPassword);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SignUp);
-            this.Controls.Add(this.textBoxConPassword);
-            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxBirthDate);
+            this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.textBoxSurname);
             this.Controls.Add(this.textBoxName);
@@ -420,15 +421,15 @@ namespace Project
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxConPassword;
+        private System.Windows.Forms.TextBox textBoxPhone;
+        private System.Windows.Forms.TextBox textBoxBirthDate;
         private System.Windows.Forms.Button SignUp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxConfirmPassword;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

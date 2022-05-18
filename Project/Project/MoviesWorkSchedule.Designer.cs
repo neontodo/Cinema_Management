@@ -96,6 +96,7 @@ namespace Project
             this.buttonExitM.TabIndex = 6;
             this.buttonExitM.Text = "Exit";
             this.buttonExitM.UseVisualStyleBackColor = false;
+            this.buttonExitM.Click += new System.EventHandler(this.buttonExitM_Click);
             // 
             // buttonUpdateM
             // 

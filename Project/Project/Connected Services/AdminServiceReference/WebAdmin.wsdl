@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllMoviesDetails">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllMoviesDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMoviesDetailsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddMovieResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddMovieResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="movieId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMovieResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMovieResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMovie">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="movieId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMovieResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteMovieResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkShifts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cinemaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllWorkShiftsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllWorkShiftsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWorkShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddWorkShiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddWorkShiftResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWorkShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="workShiftId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateWorkShiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateWorkShiftResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWorkShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="workShiftId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteWorkShiftResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteWorkShiftResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSchedulesByCinema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cinemaId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSchedulesByCinemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllSchedulesByCinemaResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSchedules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="scheduleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSchedulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSchedulesResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllMoviesDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMoviesDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:AddMovie" />
+  </wsdl:message>
+  <wsdl:message name="AddMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:AddMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMovie" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMovieSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMovie" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMovieSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkShiftsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllWorkShifts" />
+  </wsdl:message>
+  <wsdl:message name="GetAllWorkShiftsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllWorkShiftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddWorkShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:AddWorkShift" />
+  </wsdl:message>
+  <wsdl:message name="AddWorkShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:AddWorkShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWorkShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateWorkShift" />
+  </wsdl:message>
+  <wsdl:message name="UpdateWorkShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateWorkShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWorkShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteWorkShift" />
+  </wsdl:message>
+  <wsdl:message name="DeleteWorkShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteWorkShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSchedulesByCinemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSchedulesByCinema" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSchedulesByCinemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSchedulesByCinemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSchedulesSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSchedules" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSchedulesSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebAdminSoap">
+    <wsdl:operation name="GetAllMoviesDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available information regarding all movies</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMoviesDetailsSoapIn" />
+      <wsdl:output message="tns:GetAllMoviesDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Makes an insertion into the database for a movie and all its details</wsdl:documentation>
+      <wsdl:input message="tns:AddMovieSoapIn" />
+      <wsdl:output message="tns:AddMovieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Modifies the details of a movie</wsdl:documentation>
+      <wsdl:input message="tns:UpdateMovieSoapIn" />
+      <wsdl:output message="tns:UpdateMovieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes a single movie entry from the database</wsdl:documentation>
+      <wsdl:input message="tns:DeleteMovieSoapIn" />
+      <wsdl:output message="tns:DeleteMovieSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkShifts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all shifts of the employees as well as their names</wsdl:documentation>
+      <wsdl:input message="tns:GetAllWorkShiftsSoapIn" />
+      <wsdl:output message="tns:GetAllWorkShiftsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkShift">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Makes an entry in the database for a workshift of an already existing employee</wsdl:documentation>
+      <wsdl:input message="tns:AddWorkShiftSoapIn" />
+      <wsdl:output message="tns:AddWorkShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkShift">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Applies changes to the schedule held by an employee</wsdl:documentation>
+      <wsdl:input message="tns:UpdateWorkShiftSoapIn" />
+      <wsdl:output message="tns:UpdateWorkShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkShift">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Deletes the workshift of an employee</wsdl:documentation>
+      <wsdl:input message="tns:DeleteWorkShiftSoapIn" />
+      <wsdl:output message="tns:DeleteWorkShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSchedulesByCinema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets the entire schedule of a said cinema</wsdl:documentation>
+      <wsdl:input message="tns:GetAllSchedulesByCinemaSoapIn" />
+      <wsdl:output message="tns:GetAllSchedulesByCinemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSchedules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Applies modifications to the schedule of a certain cinema</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSchedulesSoapIn" />
+      <wsdl:output message="tns:UpdateSchedulesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebAdminSoap" type="tns:WebAdminSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllMoviesDetails">
+      <soap:operation soapAction="http://tempuri.org/GetAllMoviesDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <soap:operation soapAction="http://tempuri.org/AddMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <soap:operation soapAction="http://tempuri.org/UpdateMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <soap:operation soapAction="http://tempuri.org/DeleteMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkShifts">
+      <soap:operation soapAction="http://tempuri.org/GetAllWorkShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkShift">
+      <soap:operation soapAction="http://tempuri.org/AddWorkShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkShift">
+      <soap:operation soapAction="http://tempuri.org/UpdateWorkShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkShift">
+      <soap:operation soapAction="http://tempuri.org/DeleteWorkShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSchedulesByCinema">
+      <soap:operation soapAction="http://tempuri.org/GetAllSchedulesByCinema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSchedules">
+      <soap:operation soapAction="http://tempuri.org/UpdateSchedules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebAdminSoap12" type="tns:WebAdminSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllMoviesDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetAllMoviesDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <soap12:operation soapAction="http://tempuri.org/AddMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <soap12:operation soapAction="http://tempuri.org/DeleteMovie" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkShifts">
+      <soap12:operation soapAction="http://tempuri.org/GetAllWorkShifts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddWorkShift">
+      <soap12:operation soapAction="http://tempuri.org/AddWorkShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkShift">
+      <soap12:operation soapAction="http://tempuri.org/UpdateWorkShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkShift">
+      <soap12:operation soapAction="http://tempuri.org/DeleteWorkShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSchedulesByCinema">
+      <soap12:operation soapAction="http://tempuri.org/GetAllSchedulesByCinema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSchedules">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSchedules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebAdmin">
+    <wsdl:port name="WebAdminSoap" binding="tns:WebAdminSoap">
+      <soap:address location="https://localhost:44308/WebAdmin.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebAdminSoap12" binding="tns:WebAdminSoap12">
+      <soap12:address location="https://localhost:44308/WebAdmin.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
