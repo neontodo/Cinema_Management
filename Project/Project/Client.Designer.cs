@@ -31,7 +31,7 @@ namespace Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxLocations = new System.Windows.Forms.ComboBox();
             this.selectCityButton = new System.Windows.Forms.Button();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -52,15 +52,15 @@ namespace Project
             this.label1.TabIndex = 0;
             this.label1.Text = "Choose your cinema:";
             // 
-            // comboBox1
+            // comboBoxLocations
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(506, 185);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 24);
-            this.comboBox1.TabIndex = 1;
+            this.comboBoxLocations.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxLocations.FormattingEnabled = true;
+            this.comboBoxLocations.Location = new System.Drawing.Point(506, 185);
+            this.comboBoxLocations.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxLocations.Name = "comboBoxLocations";
+            this.comboBoxLocations.Size = new System.Drawing.Size(194, 24);
+            this.comboBoxLocations.TabIndex = 1;
             // 
             // selectCityButton
             // 
@@ -94,7 +94,7 @@ namespace Project
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBoxLocations);
             this.groupBox1.Controls.Add(this.buttonLogOut);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.selectCityButton);
@@ -141,7 +141,7 @@ namespace Project
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxLocations;
         private System.Windows.Forms.Button selectCityButton;
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.GroupBox groupBox1;
