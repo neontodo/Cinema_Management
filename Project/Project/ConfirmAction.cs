@@ -10,18 +10,22 @@ using System.Windows.Forms;
 
 namespace Project
 {
+    public delegate void ConfirmActionDelegate();
+
     public partial class ConfirmAction : Form
     {
-        Client_Register client_Register;
-        MoviesWorkSchedule moviesWorkSchedule;
-        Reservations reservations;
+        private Client_Register client_Register;
+        private MoviesWorkSchedule moviesWorkSchedule;
+        private Reservations reservations;
+        private ConfirmActionDelegate del;
 
-        public ConfirmAction(Client_Register client_Register, MoviesWorkSchedule moviesWorkSchedule, Reservations reservations)
+        public ConfirmAction(Client_Register client_Register, MoviesWorkSchedule moviesWorkSchedule, Reservations reservations, ConfirmActionDelegate del)
         {
             InitializeComponent();
             this.client_Register = client_Register;
             this.moviesWorkSchedule = moviesWorkSchedule;
             this.reservations = reservations;
+            this.del = del;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,6 +46,8 @@ namespace Project
             {
                 throw new NotImplementedException();
             }
+
+            del();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -62,6 +68,8 @@ namespace Project
             {
                 throw new NotImplementedException();
             }
+
+            del();
         }
     }
 }

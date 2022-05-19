@@ -39,7 +39,7 @@ namespace Project
 
                 if (userId == -1)
                 {
-                    MessageBox.Show("User not found.", "Error!");
+                    MessageBox.Show("Incorrect username or password.", "Error!");
                 }
 
                 if (service.IsClient(userId))

@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project
@@ -16,8 +8,6 @@ namespace Project
         private readonly First_Page first_Page;
         private readonly AuthenticationServiceReference.WebAuthenticationSoapClient service;
         private int confirmFlag;
-        private System.Timers.Timer secondTimer;
-        private System.Timers.Timer limitTimer;
 
         public Client_Register(First_Page first_Page)
         {
@@ -25,8 +15,6 @@ namespace Project
             service = new AuthenticationServiceReference.WebAuthenticationSoapClient();
             this.first_Page = first_Page;
             confirmFlag = -1;
-            secondTimer = new System.Timers.Timer(1000);
-            limitTimer = new System.Timers.Timer(5 * 1000);
         }
 
         public void SetConfirmFlag(int state)
@@ -55,11 +43,11 @@ namespace Project
             var password = textBoxPassword.Text;
             var confirmPassword = textBoxConfirmPassword.Text;
 
-            if(username == "" || name == "" || surname == "" || email == "" || phone == "" || birthDate == "")
+            if (username == "" || name == "" || surname == "" || email == "" || phone == "" || birthDate == "")
             {
                 MessageBox.Show("All fields must be completed.", "Error!");
             }
-            else if(password.Length < 5)
+            else if (password.Length < 5)
             {
                 MessageBox.Show("The password must have at least 5 characters.", "Error!");
                 textBoxPassword.Text = "";
@@ -73,67 +61,11 @@ namespace Project
             }
             else
             {
-                var confirmAction = new ConfirmAction(this, null, null);
+                var del = new ConfirmActionDelegate(executeAfterConfirmation);
+
+                var confirmAction = new ConfirmAction(this, null, null, del);
                 confirmAction.Show();
                 Hide();
-
-                secondTimer.Elapsed += new System.Timers.ElapsedEventHandler(executeAtOneSecond);
-                limitTimer.Elapsed += limitTimer_Elapsed;
-
-                limitTimer.Start();
-                secondTimer.Start();
-
-                //for (int i = 0; i < 5; i++)
-                //{
-                //    Thread.Sleep(1000);
-
-                //    if (confirmFlag == 1)
-                //    {
-                //        var details = new AuthenticationServiceReference.ArrayOfString
-                //        {
-                //            textBoxUserName.Text,
-                //            textBoxPassword.Text,
-                //            textBoxName.Text,
-                //            textBoxSurname.Text,
-                //            textBoxPhone.Text,
-                //            textBoxEmail.Text,
-                //            textBoxBirthDate.Text
-                //        };
-
-                //        if (service.CreateAccount(details))
-                //        {
-                //            MessageBox.Show("Account created successfully.", "Success!");
-                //        }
-                //        else
-                //        {
-                //            MessageBox.Show("Failed to create account (username might be taken).", "Error!");
-                //        }
-
-                //        break;
-                //    }
-
-                //    if (confirmFlag == 0)
-                //    {
-                //        MessageBox.Show("Operation cancelled.", "Success!");
-                //        break;
-                //    }
-                //}
-
-                //if (confirmFlag == -1)
-                //{
-                //    confirmAction.Close();
-                //    Show();
-                //    MessageBox.Show("Connection timed out, please try again.", "Error!");
-                //}
-
-                //textBoxUserName.Text = "";
-                //textBoxName.Text = "";
-                //textBoxSurname.Text = "";
-                //textBoxEmail.Text = "";
-                //textBoxPhone.Text = "";
-                //textBoxBirthDate.Text = "";
-                //textBoxPassword.Text = "";
-                //textBoxConfirmPassword.Text = "";
             }
         }
 
@@ -143,44 +75,34 @@ namespace Project
             Close();
         }
 
-        private void executeAtOneSecond(object sender, EventArgs e)
+        private void executeAfterConfirmation()
         {
-                if (confirmFlag == 1)
-                {
-                    var details = new AuthenticationServiceReference.ArrayOfString
-                    {
-                        textBoxUserName.Text,
-                        textBoxPassword.Text,
-                        textBoxName.Text,
-                        textBoxSurname.Text,
-                        textBoxPhone.Text,
-                        textBoxEmail.Text,
-                        textBoxBirthDate.Text
-                    };
-
-                    if (service.CreateAccount(details))
-                    {
-                        MessageBox.Show("Account created successfully.", "Success!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to create account (username might be taken).", "Error!");
-                    }
-                }
-
-                if (confirmFlag == 0)
-                {
-                    MessageBox.Show("Operation cancelled.", "Success!");
-                }
-        }
-
-        private void limitTimer_Elapsed(object sender, EventArgs e)
-        {
-            if (confirmFlag == -1)
+            if (confirmFlag == 1)
             {
-                //confirmAction.Close();
-                Show();
-                MessageBox.Show("Connection timed out, please try again.", "Error!");
+                var details = new AuthenticationServiceReference.ArrayOfString
+                {
+                    textBoxUserName.Text,
+                    textBoxPassword.Text,
+                    textBoxName.Text,
+                    textBoxSurname.Text,
+                    textBoxPhone.Text,
+                    textBoxEmail.Text,
+                    textBoxBirthDate.Text
+                };
+
+                if (service.CreateAccount(details))
+                {
+                    MessageBox.Show("Account created successfully.", "Success!");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to create account. Possible causes:\n  - Username might be taken\n  - Invalid input format for date of birth", "Error!");
+                }
+            }
+
+            if (confirmFlag == 0)
+            {
+                MessageBox.Show("Operation cancelled.", "Success!");
             }
 
             textBoxUserName.Text = "";
@@ -191,9 +113,6 @@ namespace Project
             textBoxBirthDate.Text = "";
             textBoxPassword.Text = "";
             textBoxConfirmPassword.Text = "";
-
-            secondTimer.Stop();
-            limitTimer.Stop();
         }
     }
 }
