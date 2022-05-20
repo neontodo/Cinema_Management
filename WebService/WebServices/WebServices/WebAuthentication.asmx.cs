@@ -251,7 +251,8 @@ namespace WebServices
         [Description("Establishes the connection with the database")]
         private void InitializeDatabseConnection()
         {
-            sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
+            //sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
+            sqlConnection.ConnectionString = @"Data Source=DESKTOP-B4VE8DR;Initial Catalog=CinemaManagement;Integrated Security=True";
 
             try
             {

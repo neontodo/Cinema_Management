@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetAllCinemas">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllCinemasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCinemasResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCinemaByLocation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cinemaLocation" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCinemaByLocationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCinemaByLocationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMoviesDetailsByDay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cinemaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="weekDay" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMoviesDetailsByDayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMoviesDetailsByDayResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMoviesDetailsByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cinemaId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllMoviesDetailsByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllMoviesDetailsByNameResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateReservationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllReservationsByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllReservationsByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllReservationsByUserResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="reservationId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteReservationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAllCinemasSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCinemas" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCinemasSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCinemasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCinemaByLocationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCinemaByLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetCinemaByLocationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCinemaByLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMoviesDetailsByDaySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesDetailsByDay" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMoviesDetailsByDaySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesDetailsByDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMoviesDetailsByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesDetailsByName" />
+  </wsdl:message>
+  <wsdl:message name="GetAllMoviesDetailsByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllMoviesDetailsByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateReservation" />
+  </wsdl:message>
+  <wsdl:message name="CreateReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateReservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllReservationsByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllReservationsByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetAllReservationsByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllReservationsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteReservation" />
+  </wsdl:message>
+  <wsdl:message name="DeleteReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteReservationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebClientSoap">
+    <wsdl:operation name="GetAllCinemas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Makes a call to the database to have access to all cinemas available</wsdl:documentation>
+      <wsdl:input message="tns:GetAllCinemasSoapIn" />
+      <wsdl:output message="tns:GetAllCinemasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCinemaByLocation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Offers a reference(id) to the cinema in the region selected by the user</wsdl:documentation>
+      <wsdl:input message="tns:GetCinemaByLocationSoapIn" />
+      <wsdl:output message="tns:GetCinemaByLocationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMoviesDetailsByDay">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all movies available in the selected day</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMoviesDetailsByDaySoapIn" />
+      <wsdl:output message="tns:GetAllMoviesDetailsByDaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMoviesDetailsByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all details regarding a certain movie, searched by name</wsdl:documentation>
+      <wsdl:input message="tns:GetAllMoviesDetailsByNameSoapIn" />
+      <wsdl:output message="tns:GetAllMoviesDetailsByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReservation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Makes an entry in the reservations table, containing references to the user, the cinema, the movie and its details</wsdl:documentation>
+      <wsdl:input message="tns:CreateReservationSoapIn" />
+      <wsdl:output message="tns:CreateReservationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservationsByUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Makes a call and receives all entries regarding the existing reservations at that point in time</wsdl:documentation>
+      <wsdl:input message="tns:GetAllReservationsByUserSoapIn" />
+      <wsdl:output message="tns:GetAllReservationsByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Admins have the possibility to remove already existing reservations</wsdl:documentation>
+      <wsdl:input message="tns:DeleteReservationSoapIn" />
+      <wsdl:output message="tns:DeleteReservationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebClientSoap" type="tns:WebClientSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCinemas">
+      <soap:operation soapAction="http://tempuri.org/GetAllCinemas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCinemaByLocation">
+      <soap:operation soapAction="http://tempuri.org/GetCinemaByLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMoviesDetailsByDay">
+      <soap:operation soapAction="http://tempuri.org/GetAllMoviesDetailsByDay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMoviesDetailsByName">
+      <soap:operation soapAction="http://tempuri.org/GetAllMoviesDetailsByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReservation">
+      <soap:operation soapAction="http://tempuri.org/CreateReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservationsByUser">
+      <soap:operation soapAction="http://tempuri.org/GetAllReservationsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <soap:operation soapAction="http://tempuri.org/DeleteReservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebClientSoap12" type="tns:WebClientSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCinemas">
+      <soap12:operation soapAction="http://tempuri.org/GetAllCinemas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCinemaByLocation">
+      <soap12:operation soapAction="http://tempuri.org/GetCinemaByLocation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMoviesDetailsByDay">
+      <soap12:operation soapAction="http://tempuri.org/GetAllMoviesDetailsByDay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMoviesDetailsByName">
+      <soap12:operation soapAction="http://tempuri.org/GetAllMoviesDetailsByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateReservation">
+      <soap12:operation soapAction="http://tempuri.org/CreateReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllReservationsByUser">
+      <soap12:operation soapAction="http://tempuri.org/GetAllReservationsByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReservation">
+      <soap12:operation soapAction="http://tempuri.org/DeleteReservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebClient">
+    <wsdl:port name="WebClientSoap" binding="tns:WebClientSoap">
+      <soap:address location="https://localhost:44308/WebClient.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebClientSoap12" binding="tns:WebClientSoap12">
+      <soap12:address location="https://localhost:44308/WebClient.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
