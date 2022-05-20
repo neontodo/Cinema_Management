@@ -30,11 +30,14 @@ namespace Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var cinemaLocation = comboBoxLocations.SelectedItem.ToString();
-            var cinemaId = service.GetCinemaByLocation(cinemaLocation);
+            if(comboBoxLocations.SelectedItem != null)
+            {
+                var cinemaLocation = comboBoxLocations.SelectedItem.ToString();
+                var cinemaId = service.GetCinemaByLocation(cinemaLocation);
 
-            new Reservations(cinemaId, userId, this).Show();
-            Hide();
+                new Reservations(cinemaId, userId, this).Show();
+                Hide();
+            }
         }
 
         private void buttonLogOut_Click(object sender, EventArgs e)

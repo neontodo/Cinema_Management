@@ -98,11 +98,15 @@ namespace Project
                 {
                     MessageBox.Show("Failed to create account. Possible causes:\n  - Username might be taken\n  - Invalid input format for date of birth", "Error!");
                 }
+
+                confirmFlag = -1;
             }
 
             if (confirmFlag == 0)
             {
                 MessageBox.Show("Operation cancelled.", "Success!");
+
+                confirmFlag = -1;
             }
 
             textBoxUserName.Text = "";

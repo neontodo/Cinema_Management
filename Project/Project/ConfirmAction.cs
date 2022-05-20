@@ -44,7 +44,9 @@ namespace Project
 
             if (reservations != null)
             {
-                throw new NotImplementedException();
+                reservations.SetConfirmFlag(0);
+                reservations.Show();
+                Close();
             }
 
             del();
@@ -66,7 +68,9 @@ namespace Project
 
             if(reservations != null)
             {
-                throw new NotImplementedException();
+                reservations.SetConfirmFlag(1);
+                reservations.Show();
+                Close();
             }
 
             del();

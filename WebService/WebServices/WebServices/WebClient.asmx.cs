@@ -99,7 +99,6 @@ namespace WebServices
         public List<string> GetAllMoviesDetailsByName(int cinemaId, string name)
         {
             var detailsAndAvailableDates = new List<string>();
-            var detailsCheck = false;
 
             InitializeDatabseConnection();
 
@@ -115,17 +114,10 @@ namespace WebServices
 
                 if (currentScheduleCinemaId == cinemaId && currentScheduleMovieName.Equals(name))
                 {
-                    if (!detailsCheck)
-                    {
-                        var movieDetails = GetMovieDetailsById(currentScheduleMovieId);
+                    var movieDetails = GetMovieDetailsById(currentScheduleMovieId);
+                    var availableDate = currentScheduleTime + ";" + currentScheduleWeekDay;
 
-                        detailsAndAvailableDates.Add(movieDetails);
-                        detailsCheck = true;
-                    }
-                    
-                    var availableDate = currentScheduleWeekDay + ";" + currentScheduleTime;
-
-                    detailsAndAvailableDates.Add(availableDate);
+                    detailsAndAvailableDates.Add(movieDetails + ";" + availableDate);
                 }
             }
 
@@ -342,7 +334,7 @@ namespace WebServices
 
                 if (currentMovieId == movieId)
                 {
-                    movieDetails = $"{currentMovieName};{currentMovieDirector};{currentMovieCast};{currentMovieDuration};{currentMovieGenre};{currentMoviePrice};{currentMovieRestrictions};{currentMovieDescription};{currentMovieRating};{currentMovieReleaseDate}";
+                    movieDetails = $"{currentMovieId};{currentMovieName};{currentMovieDirector};{currentMovieCast};{currentMovieDuration};{currentMovieGenre};{currentMoviePrice};{currentMovieRestrictions};{currentMovieDescription};{currentMovieRating};{currentMovieReleaseDate}";
                     break;
                 }
             }

@@ -32,6 +32,7 @@ namespace Project
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reservations));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonSearchByDay = new System.Windows.Forms.Button();
             this.numberOfSeatsTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonBack = new System.Windows.Forms.Button();
@@ -48,11 +49,11 @@ namespace Project
             this.buttonBackR = new System.Windows.Forms.Button();
             this.buttonDeleteR = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewReservations = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReservations)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -70,6 +71,7 @@ namespace Project
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.buttonSearchByDay);
             this.tabPage1.Controls.Add(this.numberOfSeatsTextBox);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.buttonBack);
@@ -89,6 +91,20 @@ namespace Project
             this.tabPage1.Size = new System.Drawing.Size(1025, 494);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Reservations";
+            // 
+            // buttonSearchByDay
+            // 
+            this.buttonSearchByDay.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonSearchByDay.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
+            this.buttonSearchByDay.ForeColor = System.Drawing.Color.White;
+            this.buttonSearchByDay.Location = new System.Drawing.Point(109, 114);
+            this.buttonSearchByDay.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearchByDay.Name = "buttonSearchByDay";
+            this.buttonSearchByDay.Size = new System.Drawing.Size(117, 45);
+            this.buttonSearchByDay.TabIndex = 13;
+            this.buttonSearchByDay.Text = "Search Movie";
+            this.buttonSearchByDay.UseVisualStyleBackColor = false;
+            this.buttonSearchByDay.Click += new System.EventHandler(this.buttonSearchByDay_Click);
             // 
             // numberOfSeatsTextBox
             // 
@@ -131,18 +147,19 @@ namespace Project
             this.button1.BackColor = System.Drawing.Color.DarkOrange;
             this.button1.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(109, 303);
+            this.button1.Location = new System.Drawing.Point(109, 349);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(117, 45);
             this.button1.TabIndex = 9;
             this.button1.Text = "Search Movie";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBoxMovie
             // 
             this.textBoxMovie.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxMovie.Location = new System.Drawing.Point(57, 254);
+            this.textBoxMovie.Location = new System.Drawing.Point(57, 308);
             this.textBoxMovie.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMovie.Name = "textBoxMovie";
             this.textBoxMovie.Size = new System.Drawing.Size(256, 22);
@@ -153,7 +170,7 @@ namespace Project
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bauhaus 93", 18F);
             this.label4.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label4.Location = new System.Drawing.Point(8, 216);
+            this.label4.Location = new System.Drawing.Point(8, 270);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(325, 34);
@@ -183,13 +200,14 @@ namespace Project
             this.listBoxMovies.Name = "listBoxMovies";
             this.listBoxMovies.Size = new System.Drawing.Size(668, 260);
             this.listBoxMovies.TabIndex = 5;
+            this.listBoxMovies.SelectedIndexChanged += new System.EventHandler(this.listBoxMovies_SelectedIndexChanged);
             // 
             // buttonSearch
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonSearch.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.Location = new System.Drawing.Point(109, 130);
+            this.buttonSearch.Location = new System.Drawing.Point(109, 200);
             this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(117, 45);
@@ -210,6 +228,7 @@ namespace Project
             this.buttonReserve.TabIndex = 2;
             this.buttonReserve.Text = "Reserve";
             this.buttonReserve.UseVisualStyleBackColor = false;
+            this.buttonReserve.Click += new System.EventHandler(this.buttonReserve_Click);
             // 
             // label1
             // 
@@ -240,7 +259,7 @@ namespace Project
             this.tabPage2.Controls.Add(this.buttonBackR);
             this.tabPage2.Controls.Add(this.buttonDeleteR);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.dataGridViewReservations);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
@@ -274,6 +293,7 @@ namespace Project
             this.buttonDeleteR.TabIndex = 2;
             this.buttonDeleteR.Text = "Delete";
             this.buttonDeleteR.UseVisualStyleBackColor = false;
+            this.buttonDeleteR.Click += new System.EventHandler(this.buttonDeleteR_Click);
             // 
             // label3
             // 
@@ -288,17 +308,17 @@ namespace Project
             this.label3.Text = "Reservations:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // dataGridView1
+            // dataGridViewReservations
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(71, 64);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(887, 343);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewReservations.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewReservations.Location = new System.Drawing.Point(71, 64);
+            this.dataGridViewReservations.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewReservations.Name = "dataGridViewReservations";
+            this.dataGridViewReservations.RowHeadersWidth = 51;
+            this.dataGridViewReservations.Size = new System.Drawing.Size(887, 343);
+            this.dataGridViewReservations.TabIndex = 0;
+            this.dataGridViewReservations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Reservations
             // 
@@ -316,7 +336,7 @@ namespace Project
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReservations)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,7 +352,7 @@ namespace Project
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonReserve;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewReservations;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxMovie;
@@ -342,5 +362,6 @@ namespace Project
         private System.Windows.Forms.Button buttonDeleteR;
         private System.Windows.Forms.TextBox numberOfSeatsTextBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button buttonSearchByDay;
     }
 }
