@@ -36,15 +36,14 @@ namespace ServiceTest
             Assert.AreEqual(id, -1);
         }
 
-        /// <summary>
-        /// TODO
-        /// </summary>
         [Test]
         public void FindAccount_NullData()
         {
             int id;
 
             id = service.FindAccount(null, null);
+
+            Assert.AreEqual(id, -1);
 
         }
 

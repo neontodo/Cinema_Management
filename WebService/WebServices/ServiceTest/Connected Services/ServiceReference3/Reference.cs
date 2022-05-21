@@ -91,6 +91,12 @@ namespace ServiceTest.ServiceReference3 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateSchedules", ReplyAction="*")]
         System.Threading.Tasks.Task<ServiceTest.ServiceReference3.UpdateSchedulesResponse> UpdateSchedulesAsync(ServiceTest.ServiceReference3.UpdateSchedulesRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCinemaIdByUserId", ReplyAction="*")]
+        int GetCinemaIdByUserId(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCinemaIdByUserId", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> GetCinemaIdByUserIdAsync(int userId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -887,6 +893,14 @@ namespace ServiceTest.ServiceReference3 {
             inValue.Body.details = details;
             inValue.Body.scheduleId = scheduleId;
             return ((ServiceTest.ServiceReference3.WebAdminSoap)(this)).UpdateSchedulesAsync(inValue);
+        }
+        
+        public int GetCinemaIdByUserId(int userId) {
+            return base.Channel.GetCinemaIdByUserId(userId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCinemaIdByUserIdAsync(int userId) {
+            return base.Channel.GetCinemaIdByUserIdAsync(userId);
         }
     }
 }

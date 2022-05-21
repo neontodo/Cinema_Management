@@ -41,6 +41,17 @@ namespace ServiceTest
         }
 
         [Test]
+        public void GetCinemaByLocation_NullSearch()
+        {
+            int id;
+            string cinemaLocation = "";
+
+            id = service.GetCinemaByLocation(cinemaLocation);
+
+            Assert.AreEqual(id, -1);
+        }
+
+        [Test]
         public void GetCinemaByLocation_NonExistentLocation()
         {
             int id;
