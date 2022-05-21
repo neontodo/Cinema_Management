@@ -15,6 +15,7 @@ namespace Project
             service = new AuthenticationServiceReference.WebAuthenticationSoapClient();
             this.first_Page = first_Page;
             confirmFlag = -1;
+            textBoxBirthDate.Text = "MM-DD-YYYY";
         }
 
         public void SetConfirmFlag(int state)
@@ -122,6 +123,27 @@ namespace Project
             textBoxBirthDate.Text = "";
             textBoxPassword.Text = "";
             textBoxConfirmPassword.Text = "";
+        }
+
+        private void textBoxBirthDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBirthDate_Enter(object sender, EventArgs e)
+        {
+            if (textBoxBirthDate.Text == "MM-DD-YYYY")
+            {
+                textBoxBirthDate.Text = "";
+            }
+        }
+
+        private void textBoxBirthDate_Leave(object sender, EventArgs e)
+        {
+            if (textBoxBirthDate.Text == "")
+            {
+                textBoxBirthDate.Text = "MM-DD-YYYY";
+            }
         }
     }
 }

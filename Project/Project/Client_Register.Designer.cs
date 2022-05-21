@@ -189,6 +189,9 @@ namespace Project
             this.textBoxBirthDate.Name = "textBoxBirthDate";
             this.textBoxBirthDate.Size = new System.Drawing.Size(485, 19);
             this.textBoxBirthDate.TabIndex = 10;
+            this.textBoxBirthDate.TextChanged += new System.EventHandler(this.textBoxBirthDate_TextChanged);
+            this.textBoxBirthDate.Enter += new System.EventHandler(this.textBoxBirthDate_Enter);
+            this.textBoxBirthDate.Leave += new System.EventHandler(this.textBoxBirthDate_Leave);
             // 
             // SignUp
             // 

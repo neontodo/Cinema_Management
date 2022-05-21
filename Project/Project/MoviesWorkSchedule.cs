@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Project
@@ -78,7 +73,7 @@ namespace Project
         {
             var entryIndex = dataGridViewMovies.CurrentCell.RowIndex;
 
-            if(entryIndex == -1)
+            if (entryIndex == -1)
             {
                 MessageBox.Show("Please select a row first.", "Error!");
             }
@@ -235,7 +230,7 @@ namespace Project
         {
             moviesList = service.GetAllMoviesDetails();
 
-            foreach(var movieDetails in moviesList)
+            foreach (var movieDetails in moviesList)
             {
                 var details = movieDetails.Split(';');
 
@@ -329,7 +324,7 @@ namespace Project
                 confirmFlag = -1;
             }
 
-            if(confirmFlag == 0)
+            if (confirmFlag == 0)
             {
                 MessageBox.Show("Operation cancelled.", "Success!");
 
@@ -345,20 +340,22 @@ namespace Project
             if (confirmFlag == 1)
             {
                 var entryIndex = dataGridViewMovies.CurrentCell.RowIndex;
-                var movieId = int.Parse(dataGridViewMovies.Rows[entryIndex].Cells[0].Value.ToString());
-                var insertedName = dataGridViewMovies.Rows[entryIndex].Cells[1].Value.ToString();
-                var insertedDirector = dataGridViewMovies.Rows[entryIndex].Cells[2].Value.ToString();
-                var insertedCast = dataGridViewMovies.Rows[entryIndex].Cells[3].Value.ToString();
-                var insertedDuration = dataGridViewMovies.Rows[entryIndex].Cells[4].Value.ToString();
-                var insertedGenre = dataGridViewMovies.Rows[entryIndex].Cells[5].Value.ToString();
-                var insertedPrice = dataGridViewMovies.Rows[entryIndex].Cells[6].Value.ToString();
-                var insertedRestrictions = dataGridViewMovies.Rows[entryIndex].Cells[7].Value.ToString();
-                var insertedDescription = dataGridViewMovies.Rows[entryIndex].Cells[8].Value.ToString();
-                var insertedRating = dataGridViewMovies.Rows[entryIndex].Cells[9].Value.ToString();
-                var insertedReleaseDate = dataGridViewMovies.Rows[entryIndex].Cells[10].Value.ToString();
-
-                var details = new AdminServiceReference.ArrayOfString
+                if (entryIndex < dataGridViewMovies.RowCount - 1)
                 {
+                    var movieId = int.Parse(dataGridViewMovies.Rows[entryIndex].Cells[0].Value.ToString());
+                    var insertedName = dataGridViewMovies.Rows[entryIndex].Cells[1].Value.ToString();
+                    var insertedDirector = dataGridViewMovies.Rows[entryIndex].Cells[2].Value.ToString();
+                    var insertedCast = dataGridViewMovies.Rows[entryIndex].Cells[3].Value.ToString();
+                    var insertedDuration = dataGridViewMovies.Rows[entryIndex].Cells[4].Value.ToString();
+                    var insertedGenre = dataGridViewMovies.Rows[entryIndex].Cells[5].Value.ToString();
+                    var insertedPrice = dataGridViewMovies.Rows[entryIndex].Cells[6].Value.ToString();
+                    var insertedRestrictions = dataGridViewMovies.Rows[entryIndex].Cells[7].Value.ToString();
+                    var insertedDescription = dataGridViewMovies.Rows[entryIndex].Cells[8].Value.ToString();
+                    var insertedRating = dataGridViewMovies.Rows[entryIndex].Cells[9].Value.ToString();
+                    var insertedReleaseDate = dataGridViewMovies.Rows[entryIndex].Cells[10].Value.ToString();
+
+                    var details = new AdminServiceReference.ArrayOfString
+                    {
                     insertedName,
                     insertedDirector,
                     insertedCast,
@@ -369,18 +366,23 @@ namespace Project
                     insertedDescription,
                     insertedRating,
                     insertedReleaseDate
-                };
+                    };
 
-                if (service.UpdateMovie(details, movieId))
-                {
-                    MessageBox.Show("Movie updated successfully.", "Success!");
+                    if (service.UpdateMovie(details, movieId))
+                    {
+                        MessageBox.Show("Movie updated successfully.", "Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred (invalid data formats).", "Error!");
+                    }
+
+                    confirmFlag = -1;
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred (invalid data formats).", "Error!");
+                    MessageBox.Show("Please try updating an already existing row");
                 }
-
-                confirmFlag = -1;
             }
 
             if (confirmFlag == 0)
@@ -413,7 +415,8 @@ namespace Project
                     }
 
                     confirmFlag = -1;
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Please select a valid row", "Error!");
                 }
@@ -475,28 +478,35 @@ namespace Project
             if (confirmFlag == 1)
             {
                 var entryIndex = dataGridViewShift.CurrentCell.RowIndex;
-                var shiftId = int.Parse(shiftsList.ElementAt(entryIndex).Split(';').ElementAt(0));
-                var insertedStartTime = dataGridViewShift.Rows[entryIndex].Cells[0].Value.ToString();
-                var insertedDuration = dataGridViewShift.Rows[entryIndex].Cells[1].Value.ToString();
-                var insertedEmployeeName = dataGridViewShift.Rows[entryIndex].Cells[2].Value.ToString();
-
-                var details = new AdminServiceReference.ArrayOfString
+                if (entryIndex < dataGridViewShift.RowCount - 1)
                 {
+                    var shiftId = int.Parse(shiftsList.ElementAt(entryIndex).Split(';').ElementAt(0));
+                    var insertedStartTime = dataGridViewShift.Rows[entryIndex].Cells[0].Value.ToString();
+                    var insertedDuration = dataGridViewShift.Rows[entryIndex].Cells[1].Value.ToString();
+                    var insertedEmployeeName = dataGridViewShift.Rows[entryIndex].Cells[2].Value.ToString();
+
+                    var details = new AdminServiceReference.ArrayOfString
+                    {
                     insertedStartTime,
                     insertedDuration,
                     insertedEmployeeName
-                };
+                    };
 
-                if (service.UpdateWorkShift(details, shiftId))
-                {
-                    MessageBox.Show("Shift updated successfully.", "Success!");
+                    if (service.UpdateWorkShift(details, shiftId))
+                    {
+                        MessageBox.Show("Shift updated successfully.", "Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred An error occurred. Possible causes may be:\n  - Invalid data format\n  - Employee already has a shift.", "Error!");
+                    }
+
+                    confirmFlag = -1;
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred An error occurred. Possible causes may be:\n  - Invalid data format\n  - Employee already has a shift.", "Error!");
+                    MessageBox.Show("Please update an already existing raw");
                 }
-
-                confirmFlag = -1;
             }
 
             if (confirmFlag == 0)
@@ -552,28 +562,35 @@ namespace Project
             if (confirmFlag == 1)
             {
                 var entryIndex = dataGridViewSchedule.CurrentCell.RowIndex;
-                var scheduleId = int.Parse(scheduleList.ElementAt(entryIndex).Split(';').ElementAt(0));
-                var insertedMovieId = dataGridViewSchedule.Rows[entryIndex].Cells[0].Value.ToString();
-                var insertedTime = dataGridViewSchedule.Rows[entryIndex].Cells[1].Value.ToString();
-                var insertedWeekDay = dataGridViewSchedule.Rows[entryIndex].Cells[2].Value.ToString();
-
-                var details = new AdminServiceReference.ArrayOfString
+                if (entryIndex < dataGridViewSchedule.RowCount - 1)
                 {
+                    var scheduleId = int.Parse(scheduleList.ElementAt(entryIndex).Split(';').ElementAt(0));
+                    var insertedMovieId = dataGridViewSchedule.Rows[entryIndex].Cells[0].Value.ToString();
+                    var insertedTime = dataGridViewSchedule.Rows[entryIndex].Cells[1].Value.ToString();
+                    var insertedWeekDay = dataGridViewSchedule.Rows[entryIndex].Cells[2].Value.ToString();
+
+                    var details = new AdminServiceReference.ArrayOfString
+                    {
                     insertedMovieId,
                     insertedTime,
                     insertedWeekDay
-                };
+                    };
 
-                if (service.UpdateSchedules(details, scheduleId))
-                {
-                    MessageBox.Show("Schedule updated successfully.", "Success!");
+                    if (service.UpdateSchedules(details, scheduleId))
+                    {
+                        MessageBox.Show("Schedule updated successfully.", "Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred An error occurred (invalid data format).", "Error!");
+                    }
+
+                    confirmFlag = -1;
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred An error occurred (invalid data format).", "Error!");
+                    MessageBox.Show("Please try updating an already existing row");
                 }
-
-                confirmFlag = -1;
             }
 
             if (confirmFlag == 0)

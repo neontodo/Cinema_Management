@@ -84,20 +84,12 @@ namespace WebServices
             {
                 var currentScheduleCinemaId = int.Parse(scheduleEntry.ItemArray[4].ToString());
                 var currentScheduleWeekDay = scheduleEntry.ItemArray[3].ToString();
-                string currentScheduleMovieId;
-                if (scheduleEntry.ItemArray[1] == null)
-                {
-                    currentScheduleMovieId = "NULL";
-                }
-                else
-                {
-                    currentScheduleMovieId = scheduleEntry.ItemArray[1].ToString();
-                }
+                string currentScheduleMovieId = scheduleEntry.ItemArray[1].ToString();
                 var currentScheduleTime = scheduleEntry.ItemArray[2].ToString();
 
                 if (currentScheduleCinemaId == cinemaId && currentScheduleWeekDay.Equals(weekDay))
                 {
-                    if (currentScheduleMovieId != "NULL")
+                    if (int.Parse(currentScheduleMovieId) != 1)
                     {
                         var movieDetails = GetMovieDetailsById(int.Parse(currentScheduleMovieId));
                         movieDetails += ";" + currentScheduleTime;
@@ -123,16 +115,19 @@ namespace WebServices
             {
                 var currentScheduleCinemaId = int.Parse(scheduleEntry.ItemArray[4].ToString());
                 var currentScheduleWeekDay = scheduleEntry.ItemArray[3].ToString();
-                var currentScheduleMovieId = int.Parse(scheduleEntry.ItemArray[1].ToString());
+                var currentScheduleMovieId = scheduleEntry.ItemArray[1].ToString();
                 var currentScheduleTime = scheduleEntry.ItemArray[2].ToString();
-                var currentScheduleMovieName = GetMovieNameById(currentScheduleMovieId);
+                var currentScheduleMovieName = GetMovieNameById(int.Parse(currentScheduleMovieId));
 
                 if (currentScheduleCinemaId == cinemaId && currentScheduleMovieName.Equals(name))
                 {
-                    var movieDetails = GetMovieDetailsById(currentScheduleMovieId);
-                    var availableDate = currentScheduleTime + ";" + currentScheduleWeekDay;
+                    if (int.Parse(currentScheduleMovieId) != 1)
+                    {
+                        var movieDetails = GetMovieDetailsById(int.Parse(currentScheduleMovieId));
+                        var availableDate = currentScheduleTime + ";" + currentScheduleWeekDay;
 
-                    detailsAndAvailableDates.Add(movieDetails + ";" + availableDate);
+                        detailsAndAvailableDates.Add(movieDetails + ";" + availableDate);
+                    }
                 }
             }
 
@@ -343,6 +338,7 @@ namespace WebServices
             return movieName;
         }
 
+        [Description("Returns all details of a requested movie by using a reference to its id")]
         private string GetMovieDetailsById(int movieId)
         {
             string movieDetails = "";

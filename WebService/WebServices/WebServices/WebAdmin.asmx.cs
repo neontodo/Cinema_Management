@@ -49,8 +49,11 @@ namespace WebServices
                 var currentMovieRating = double.Parse(movie.ItemArray[9].ToString());
                 var currentMovieReleaseDate = DateTime.Parse(movie.ItemArray[10].ToString());
 
-                var currentMovieDetails = $"{currentMovieId};{currentMovieName};{currentMovieDirector};{currentMovieCast};{currentMovieDuration};{currentMovieGenre};{currentMoviePrice};{currentMovieRestrictions};{currentMovieDescription};{currentMovieRating};{currentMovieReleaseDate}";
-                movieDetails.Add(currentMovieDetails);
+                if (currentMovieId != 1)
+                {
+                    var currentMovieDetails = $"{currentMovieId};{currentMovieName};{currentMovieDirector};{currentMovieCast};{currentMovieDuration};{currentMovieGenre};{currentMoviePrice};{currentMovieRestrictions};{currentMovieDescription};{currentMovieRating};{currentMovieReleaseDate}";
+                    movieDetails.Add(currentMovieDetails);
+                }
             }
 
             return movieDetails;
@@ -199,7 +202,7 @@ namespace WebServices
             sqlConnection.Open();
 
             SqlCommand deleteFromReservations = new SqlCommand("DELETE FROM Reservations WHERE MovieId = @movieId", sqlConnection);
-            SqlCommand eraseFromSchedules = new SqlCommand("UPDATE Schedules SET MovieId = NULL WHERE MovieId = @movieId", sqlConnection);
+            SqlCommand eraseFromSchedules = new SqlCommand("UPDATE Schedules SET MovieId = 1 WHERE MovieId = @movieId", sqlConnection);
             SqlCommand deleteFromMovies = new SqlCommand("DELETE FROM Movies WHERE MovieId = @movieId", sqlConnection);
             deleteFromReservations.Parameters.AddWithValue("@movieId", movieId);
             eraseFromSchedules.Parameters.AddWithValue("@movieId", movieId);
@@ -465,7 +468,7 @@ namespace WebServices
             }
         }
 
-        [WebMethod]
+        [WebMethod(Description = "Receive the id of a cinema, through the user's id")]
         public int GetCinemaIdByUserId(int userId)
         {
             var cinemaId = -1;
@@ -489,6 +492,7 @@ namespace WebServices
             return cinemaId;
         }
 
+        [Description("Receive the id of the cinema at which an employee is assigned")]
         private int GetCinemaIdByEmployee(int eId)
         {
             var cinemaId = -1;
@@ -512,6 +516,7 @@ namespace WebServices
             return cinemaId;
         }
 
+        [Description("Receive the entire name of an employee")]
         private string GetEmployeeFullNameById(int eId)
         {
             var name = "";
@@ -536,6 +541,7 @@ namespace WebServices
             return name;
         }
 
+        [Description("Receive the id of an employee by using their entire name")]
         private int GetEmployeeIdByFullName(string name)
         {
             var id = -1;
