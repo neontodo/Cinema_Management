@@ -42,6 +42,12 @@ namespace Project
             confirmFlag = state;
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            client.Show();
+            base.OnFormClosing(e);
+        }
+
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -92,7 +98,6 @@ namespace Project
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            client.Show();
             Close();
         }
 
@@ -167,7 +172,6 @@ namespace Project
 
         private void buttonBackR_Click(object sender, EventArgs e)
         {
-            client.Show();
             Close();
         }
 

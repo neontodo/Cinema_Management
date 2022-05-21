@@ -202,6 +202,24 @@ namespace WebServices
         {
             InitializeDatabseConnection();
 
+            var reservations = reservationsDataSet.Tables["Reservations"].Rows;
+            var check = false;
+
+            foreach (DataRow reservation in reservations)
+            {
+                var currentReservationId = int.Parse(reservation.ItemArray[0].ToString());
+
+                if (currentReservationId == reservationId)
+                {
+                    check = true;
+                }
+            }
+
+            if (!check)
+            {
+                return false;
+            }
+
             sqlConnection.Open();
 
             SqlCommand delete = new SqlCommand("DELETE FROM Reservations WHERE ReservationId = @reservationId", sqlConnection);
@@ -345,8 +363,8 @@ namespace WebServices
         [Description("Establishes the connection with the database")]
         private void InitializeDatabseConnection()
         {
-            //sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
-            sqlConnection.ConnectionString = @"Data Source=DESKTOP-B4VE8DR;Initial Catalog=CinemaManagement;Integrated Security=True";
+            sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
+            //sqlConnection.ConnectionString = @"Data Source=DESKTOP-B4VE8DR;Initial Catalog=CinemaManagement;Integrated Security=True";
 
             try
             {

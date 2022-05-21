@@ -22,6 +22,12 @@ namespace Project
             confirmFlag = state;
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            first_Page.Show();
+            base.OnFormClosing(e);
+        }
+
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -71,7 +77,6 @@ namespace Project
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
-            first_Page.Show();
             Close();
         }
 

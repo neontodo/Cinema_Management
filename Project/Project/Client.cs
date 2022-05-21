@@ -28,6 +28,12 @@ namespace Project
             initializeCinemaLocationsComboBox();
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            first_Page.Show();
+            base.OnFormClosing(e);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(comboBoxLocations.SelectedItem != null)
@@ -42,7 +48,6 @@ namespace Project
 
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
-            first_Page.Show();
             Close();
         }
 

@@ -77,6 +77,18 @@ namespace WebServices
 
             InitializeDatabseConnection();
 
+            var movies = moviesDataSet.Tables["Movies"].Rows;
+
+            foreach (DataRow movie in movies)
+            {
+                var currentMovieName = movie.ItemArray[1].ToString();
+
+                if (currentMovieName.Equals(title))
+                {
+                    return false;
+                }
+            }
+
             sqlConnection.Open();
 
             SqlCommand add = new SqlCommand("INSERT INTO Movies (Title, Director, Cast, Duration, Genre, Price, Restrictions, Description, Rating, ReleaseDate) VALUES (@title, @director, @cast, @duration, @genre, @price, @restrictions, @description, @rating, @releaseDate)", sqlConnection);
@@ -164,6 +176,24 @@ namespace WebServices
         {
             InitializeDatabseConnection();
 
+            var movies = moviesDataSet.Tables["Movies"].Rows;
+            var check = false;
+
+            foreach (DataRow movie in movies)
+            {
+                var currentMovieId = int.Parse(movie.ItemArray[0].ToString());
+
+                if (currentMovieId == movieId)
+                {
+                    check = true;
+                }
+            }
+
+            if (!check)
+            {
+                return false;
+            }
+
             sqlConnection.Open();
 
             SqlCommand deleteFromReservations = new SqlCommand("DELETE FROM Reservations WHERE MovieId = @movieId", sqlConnection);
@@ -238,6 +268,18 @@ namespace WebServices
 
             InitializeDatabseConnection();
 
+            var workShifts = workShiftsDataSet.Tables["WorkShifts"].Rows;
+
+            foreach (DataRow workShift in workShifts)
+            {
+                var currentShiftEId = int.Parse(workShift.ItemArray[3].ToString());
+
+                if(eId == currentShiftEId)
+                {
+                    return false;
+                }
+            }
+
             sqlConnection.Open();
 
             SqlCommand add = new SqlCommand("INSERT INTO WorkShifts (StartTime, Duration, EId) VALUES (@startTime, @duration, @eId)", sqlConnection);
@@ -309,6 +351,24 @@ namespace WebServices
         public bool DeleteWorkShift(int workShiftId)
         {
             InitializeDatabseConnection();
+
+            var workShifts = workShiftsDataSet.Tables["WorkShifts"].Rows;
+            var check = false;
+
+            foreach (DataRow workShift in workShifts)
+            {
+                var currentShiftId = int.Parse(workShift.ItemArray[0].ToString());
+
+                if (currentShiftId == workShiftId)
+                {
+                    check = true;
+                }
+            }
+
+            if (!check)
+            {
+                return false;
+            }
 
             sqlConnection.Open();
 
@@ -395,6 +455,30 @@ namespace WebServices
             }
         }
 
+        [WebMethod]
+        public int GetCinemaIdByUserId(int userId)
+        {
+            var cinemaId = -1;
+
+            InitializeDatabseConnection();
+
+            var employees = employeesDataSet.Tables["Employees"].Rows;
+
+            foreach (DataRow employee in employees)
+            {
+                var currentUserId = int.Parse(employee.ItemArray[5].ToString());
+                var currentCinemaId = int.Parse(employee.ItemArray[7].ToString());
+
+                if (currentUserId == userId)
+                {
+                    cinemaId = currentCinemaId;
+                    break;
+                }
+            }
+
+            return cinemaId;
+        }
+
         private int GetCinemaIdByEmployee(int eId)
         {
             var cinemaId = -1;
@@ -470,8 +554,8 @@ namespace WebServices
         [Description("Establishes the connection with the database")]
         private void InitializeDatabseConnection()
         {
-            //sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
-            sqlConnection.ConnectionString = @"Data Source=DESKTOP-B4VE8DR;Initial Catalog=CinemaManagement;Integrated Security=True";
+            sqlConnection.ConnectionString = @"Data Source=DESKTOP-9N4ISG2\MSSQLSERVER01;Initial Catalog=CinemaManagement;Integrated Security=True";
+            //sqlConnection.ConnectionString = @"Data Source=DESKTOP-B4VE8DR;Initial Catalog=CinemaManagement;Integrated Security=True";
 
             try
             {

@@ -39,7 +39,9 @@ namespace Project
 
             if (moviesWorkSchedule != null)
             {
-                throw new NotImplementedException();
+                moviesWorkSchedule.SetConfirmFlag(0);
+                moviesWorkSchedule.Show();
+                Close();
             }
 
             if (reservations != null)
@@ -63,7 +65,9 @@ namespace Project
 
             if(moviesWorkSchedule != null)
             {
-                throw new NotImplementedException();
+                moviesWorkSchedule.SetConfirmFlag(1);
+                moviesWorkSchedule.Show();
+                Close();
             }
 
             if(reservations != null)
