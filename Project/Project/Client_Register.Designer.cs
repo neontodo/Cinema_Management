@@ -70,7 +70,7 @@ namespace Project
             this.label1.Location = new System.Drawing.Point(323, 171);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 45);
+            this.label1.Size = new System.Drawing.Size(118, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Sign Up";
             // 
@@ -79,10 +79,10 @@ namespace Project
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.Color.Black;
-            this.labelName.Location = new System.Drawing.Point(82, 280);
+            this.labelName.Location = new System.Drawing.Point(117, 278);
             this.labelName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(75, 25);
+            this.labelName.Size = new System.Drawing.Size(60, 20);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Name:";
             // 
@@ -91,10 +91,10 @@ namespace Project
             this.labelSurname.AutoSize = true;
             this.labelSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSurname.ForeColor = System.Drawing.Color.Black;
-            this.labelSurname.Location = new System.Drawing.Point(72, 327);
+            this.labelSurname.Location = new System.Drawing.Point(87, 324);
             this.labelSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelSurname.Name = "labelSurname";
-            this.labelSurname.Size = new System.Drawing.Size(106, 25);
+            this.labelSurname.Size = new System.Drawing.Size(86, 20);
             this.labelSurname.TabIndex = 2;
             this.labelSurname.Text = "Surname:";
             // 
@@ -103,10 +103,10 @@ namespace Project
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEmail.ForeColor = System.Drawing.Color.Black;
-            this.labelEmail.Location = new System.Drawing.Point(90, 370);
+            this.labelEmail.Location = new System.Drawing.Point(117, 367);
             this.labelEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(72, 25);
+            this.labelEmail.Size = new System.Drawing.Size(58, 20);
             this.labelEmail.TabIndex = 3;
             this.labelEmail.Text = "Email:";
             this.labelEmail.Click += new System.EventHandler(this.labelEmail_Click);
@@ -116,10 +116,10 @@ namespace Project
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.ForeColor = System.Drawing.Color.Black;
-            this.labelPassword.Location = new System.Drawing.Point(82, 414);
+            this.labelPassword.Location = new System.Drawing.Point(110, 411);
             this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(81, 25);
+            this.labelPassword.Size = new System.Drawing.Size(65, 20);
             this.labelPassword.TabIndex = 4;
             this.labelPassword.Text = "Phone:";
             // 
@@ -128,10 +128,10 @@ namespace Project
             this.labelConPassword.AutoSize = true;
             this.labelConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelConPassword.ForeColor = System.Drawing.Color.Black;
-            this.labelConPassword.Location = new System.Drawing.Point(72, 464);
+            this.labelConPassword.Location = new System.Drawing.Point(87, 461);
             this.labelConPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelConPassword.Name = "labelConPassword";
-            this.labelConPassword.Size = new System.Drawing.Size(105, 25);
+            this.labelConPassword.Size = new System.Drawing.Size(88, 20);
             this.labelConPassword.TabIndex = 5;
             this.labelConPassword.Text = "Birthdate:";
             // 
@@ -140,10 +140,10 @@ namespace Project
             this.textBoxName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxName.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(247, 278);
+            this.textBoxName.Location = new System.Drawing.Point(222, 278);
             this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(485, 24);
+            this.textBoxName.Size = new System.Drawing.Size(485, 19);
             this.textBoxName.TabIndex = 6;
             // 
             // textBoxSurname
@@ -151,10 +151,10 @@ namespace Project
             this.textBoxSurname.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxSurname.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSurname.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSurname.Location = new System.Drawing.Point(247, 324);
+            this.textBoxSurname.Location = new System.Drawing.Point(222, 324);
             this.textBoxSurname.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(485, 24);
+            this.textBoxSurname.Size = new System.Drawing.Size(485, 19);
             this.textBoxSurname.TabIndex = 7;
             // 
             // textBoxEmail
@@ -162,10 +162,10 @@ namespace Project
             this.textBoxEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxEmail.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(251, 367);
+            this.textBoxEmail.Location = new System.Drawing.Point(222, 368);
             this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(485, 24);
+            this.textBoxEmail.Size = new System.Drawing.Size(485, 19);
             this.textBoxEmail.TabIndex = 8;
             // 
             // textBoxPhone
@@ -173,10 +173,10 @@ namespace Project
             this.textBoxPhone.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxPhone.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPhone.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPhone.Location = new System.Drawing.Point(247, 411);
+            this.textBoxPhone.Location = new System.Drawing.Point(222, 411);
             this.textBoxPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPhone.Name = "textBoxPhone";
-            this.textBoxPhone.Size = new System.Drawing.Size(485, 24);
+            this.textBoxPhone.Size = new System.Drawing.Size(485, 19);
             this.textBoxPhone.TabIndex = 9;
             // 
             // textBoxBirthDate
@@ -184,10 +184,10 @@ namespace Project
             this.textBoxBirthDate.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxBirthDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxBirthDate.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBirthDate.Location = new System.Drawing.Point(247, 461);
+            this.textBoxBirthDate.Location = new System.Drawing.Point(222, 461);
             this.textBoxBirthDate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxBirthDate.Name = "textBoxBirthDate";
-            this.textBoxBirthDate.Size = new System.Drawing.Size(485, 24);
+            this.textBoxBirthDate.Size = new System.Drawing.Size(485, 19);
             this.textBoxBirthDate.TabIndex = 10;
             // 
             // SignUp
@@ -210,10 +210,10 @@ namespace Project
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(65, 513);
+            this.label2.Location = new System.Drawing.Point(82, 510);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 25);
+            this.label2.Size = new System.Drawing.Size(91, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "Password:";
             // 
@@ -222,10 +222,10 @@ namespace Project
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(27, 559);
+            this.label3.Location = new System.Drawing.Point(19, 559);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 25);
+            this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 13;
             this.label3.Text = "Confirm Password:";
             // 
@@ -234,11 +234,11 @@ namespace Project
             this.textBoxPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPassword.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(247, 510);
+            this.textBoxPassword.Location = new System.Drawing.Point(222, 510);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(485, 24);
+            this.textBoxPassword.Size = new System.Drawing.Size(485, 19);
             this.textBoxPassword.TabIndex = 14;
             // 
             // textBoxConfirmPassword
@@ -246,11 +246,11 @@ namespace Project
             this.textBoxConfirmPassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxConfirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxConfirmPassword.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxConfirmPassword.Location = new System.Drawing.Point(247, 559);
+            this.textBoxConfirmPassword.Location = new System.Drawing.Point(222, 559);
             this.textBoxConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxConfirmPassword.Name = "textBoxConfirmPassword";
             this.textBoxConfirmPassword.PasswordChar = '*';
-            this.textBoxConfirmPassword.Size = new System.Drawing.Size(485, 24);
+            this.textBoxConfirmPassword.Size = new System.Drawing.Size(485, 19);
             this.textBoxConfirmPassword.TabIndex = 15;
             // 
             // label4
@@ -258,10 +258,11 @@ namespace Project
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(60, 237);
+            this.label4.Location = new System.Drawing.Point(82, 234);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 25);
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label4.Size = new System.Drawing.Size(96, 20);
             this.label4.TabIndex = 16;
             this.label4.Text = "Username:";
             // 
@@ -270,16 +271,16 @@ namespace Project
             this.textBoxUserName.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxUserName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxUserName.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(247, 234);
+            this.textBoxUserName.Location = new System.Drawing.Point(222, 234);
             this.textBoxUserName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(485, 24);
+            this.textBoxUserName.Size = new System.Drawing.Size(485, 19);
             this.textBoxUserName.TabIndex = 17;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(247, 347);
+            this.panel1.Location = new System.Drawing.Point(222, 347);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(482, 1);
             this.panel1.TabIndex = 18;
@@ -287,7 +288,7 @@ namespace Project
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(247, 301);
+            this.panel2.Location = new System.Drawing.Point(222, 301);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 1);
             this.panel2.TabIndex = 19;
@@ -295,7 +296,7 @@ namespace Project
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(247, 257);
+            this.panel3.Location = new System.Drawing.Point(222, 257);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(482, 1);
             this.panel3.TabIndex = 19;
@@ -303,7 +304,7 @@ namespace Project
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(247, 390);
+            this.panel4.Location = new System.Drawing.Point(222, 390);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(482, 1);
             this.panel4.TabIndex = 19;
@@ -311,7 +312,7 @@ namespace Project
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(247, 438);
+            this.panel5.Location = new System.Drawing.Point(222, 438);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(482, 1);
             this.panel5.TabIndex = 20;
@@ -319,7 +320,7 @@ namespace Project
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(247, 488);
+            this.panel6.Location = new System.Drawing.Point(222, 488);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(482, 1);
             this.panel6.TabIndex = 21;
@@ -327,7 +328,7 @@ namespace Project
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Black;
-            this.panel7.Location = new System.Drawing.Point(247, 537);
+            this.panel7.Location = new System.Drawing.Point(222, 537);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(482, 1);
             this.panel7.TabIndex = 22;
@@ -335,7 +336,7 @@ namespace Project
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Black;
-            this.panel8.Location = new System.Drawing.Point(247, 582);
+            this.panel8.Location = new System.Drawing.Point(222, 582);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(482, 1);
             this.panel8.TabIndex = 23;
@@ -366,7 +367,7 @@ namespace Project
             // 
             // Client_Register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(802, 709);

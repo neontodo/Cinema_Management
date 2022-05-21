@@ -80,7 +80,6 @@ namespace ServiceTest
             Assert.IsNotEmpty(movieDetails);
         }
 
-        //TO BE SEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEN
         [Test]
         public void GetAllMoviesByDay_ReceivesAllData()
         {
@@ -96,9 +95,7 @@ namespace ServiceTest
 
             string smth = details[10];
 
-            Assert.AreEqual(smth, "");
-
-            //Assert.AreEqual(details.Length, 10);
+            Assert.AreEqual(details.Length, 11);
         }
         [Test]
         public void GetAllMoviesByDay_ReceivesCorrectData()
@@ -248,7 +245,7 @@ namespace ServiceTest
         public void DeleteReservation_Succesful()
         {
             bool result;
-            int reservationId=10;
+            int reservationId=1007;
 
             result = service.DeleteReservation(reservationId);
 

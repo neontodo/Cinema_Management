@@ -56,7 +56,7 @@ namespace Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(client_Register != null)
+             if(client_Register != null)
             {
                 client_Register.SetConfirmFlag(1);
                 client_Register.Show();

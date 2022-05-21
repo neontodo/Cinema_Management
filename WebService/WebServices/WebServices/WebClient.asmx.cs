@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 namespace WebServices
@@ -34,7 +33,7 @@ namespace WebServices
 
             var cinemas = cinemasDataSet.Tables["Cinemas"].Rows;
 
-            foreach(DataRow cinema in cinemas)
+            foreach (DataRow cinema in cinemas)
             {
                 var cinemaLocation = cinema.ItemArray[1].ToString();
                 cinemaLocations.Add(cinemaLocation);
@@ -49,7 +48,7 @@ namespace WebServices
         {
             int cinemaId = -1;
 
-            if(String.IsNullOrEmpty(cinemaLocation))
+            if (String.IsNullOrEmpty(cinemaLocation))
             {
                 return cinemaId;
             }
@@ -85,15 +84,26 @@ namespace WebServices
             {
                 var currentScheduleCinemaId = int.Parse(scheduleEntry.ItemArray[4].ToString());
                 var currentScheduleWeekDay = scheduleEntry.ItemArray[3].ToString();
-                var currentScheduleMovieId = int.Parse(scheduleEntry.ItemArray[1].ToString());
+                string currentScheduleMovieId;
+                if (scheduleEntry.ItemArray[1] == null)
+                {
+                    currentScheduleMovieId = "NULL";
+                }
+                else
+                {
+                    currentScheduleMovieId = scheduleEntry.ItemArray[1].ToString();
+                }
                 var currentScheduleTime = scheduleEntry.ItemArray[2].ToString();
 
                 if (currentScheduleCinemaId == cinemaId && currentScheduleWeekDay.Equals(weekDay))
                 {
-                    var movieDetails = GetMovieDetailsById(currentScheduleMovieId);
-                    movieDetails += ";" + currentScheduleTime;
+                    if (currentScheduleMovieId != "NULL")
+                    {
+                        var movieDetails = GetMovieDetailsById(int.Parse(currentScheduleMovieId));
+                        movieDetails += ";" + currentScheduleTime;
 
-                    availableMovies.Add(movieDetails);
+                        availableMovies.Add(movieDetails);
+                    }
                 }
             }
 
@@ -140,7 +150,7 @@ namespace WebServices
 
             if (IsNotAvailable(cinemaId, time, numberOfSeats))
             {
-                return false; 
+                return false;
             }
 
             InitializeDatabseConnection();
@@ -179,7 +189,7 @@ namespace WebServices
 
             var reservations = reservationsDataSet.Tables["Reservations"].Rows;
 
-            foreach(DataRow reservation in reservations)
+            foreach (DataRow reservation in reservations)
             {
                 var currentReservationId = int.Parse(reservation.ItemArray[0].ToString());
                 var currentReservationUserId = int.Parse(reservation.ItemArray[1].ToString());
@@ -187,7 +197,7 @@ namespace WebServices
                 var currentReservationTime = DateTime.Parse(reservation.ItemArray[4].ToString());
                 var currentReservationNumberOfSeats = int.Parse(reservation.ItemArray[5].ToString());
 
-                if(userId == currentReservationUserId && currentReservationTime > DateTime.Now)
+                if (userId == currentReservationUserId && currentReservationTime > DateTime.Now)
                 {
                     var movieName = GetMovieNameById(currentReservationMovieId);
                     var time = currentReservationTime.ToShortTimeString();
@@ -202,7 +212,7 @@ namespace WebServices
             return reservationList;
         }
 
-        [WebMethod(Description ="Admins have the possibility to remove already existing reservations")]
+        [WebMethod(Description = "Admins have the possibility to remove already existing reservations")]
         public bool DeleteReservation(int reservationId)
         {
             InitializeDatabseConnection();
@@ -253,7 +263,7 @@ namespace WebServices
             var occupiedSeats = CountOccupiedSeats(cinemaId, time);
             var occupiedSeatsWithCurrentReservation = occupiedSeats + numberOfSeats;
 
-            if(cinemaCapacity == -1 || cinemaCapacity < occupiedSeatsWithCurrentReservation)
+            if (cinemaCapacity == -1 || cinemaCapacity < occupiedSeatsWithCurrentReservation)
             {
                 return true;
             }
@@ -270,12 +280,12 @@ namespace WebServices
 
             var cinemas = cinemasDataSet.Tables["Cinemas"].Rows;
 
-            foreach(DataRow cinema in cinemas)
+            foreach (DataRow cinema in cinemas)
             {
                 var currentCinemaId = int.Parse(cinema.ItemArray[0].ToString());
                 var currentCinemaCapacity = int.Parse(cinema.ItemArray[2].ToString());
 
-                if(currentCinemaId == cinemaId)
+                if (currentCinemaId == cinemaId)
                 {
                     capacity = currentCinemaCapacity;
                     break;
@@ -300,7 +310,7 @@ namespace WebServices
                 var currentReservationTime = DateTime.Parse(reservation.ItemArray[4].ToString());
                 var currentReservationNumberOfSeats = int.Parse(reservation.ItemArray[5].ToString());
 
-                if(currentReservationCinemaId == cinemaId && currentReservationTime.Equals(time))
+                if (currentReservationCinemaId == cinemaId && currentReservationTime.Equals(time))
                 {
                     occupiedSeats += currentReservationNumberOfSeats;
                 }
@@ -318,12 +328,12 @@ namespace WebServices
 
             var movies = moviesDataSet.Tables["Movies"].Rows;
 
-            foreach(DataRow movie in movies)
+            foreach (DataRow movie in movies)
             {
                 var currentMovieId = int.Parse(movie.ItemArray[0].ToString());
                 var currentMovieName = movie.ItemArray[1].ToString();
 
-                if(currentMovieId == movieId)
+                if (currentMovieId == movieId)
                 {
                     movieName = currentMovieName;
                     break;

@@ -147,11 +147,12 @@ namespace WebServices
         private bool CreateLoginEntry(string username, string password)
         {
             InitializeDatabseConnection();
-
+            /*
             if(String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
                 return false;
             }
+            */
 
             sqlConnection.Open();
 

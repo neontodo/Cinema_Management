@@ -67,5 +67,19 @@ namespace Project
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (textBoxPassword.PasswordChar == '*')
+            {
+                textBoxPassword.PasswordChar = '\0';
+                button1.Image = Project.Properties.Resources.hide;
+            }
+            else
+            {
+                textBoxPassword.PasswordChar = '*';
+                button1.Image = Project.Properties.Resources.show;
+            }
+        }
     }
 }

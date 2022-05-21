@@ -78,7 +78,7 @@ namespace Project
             this.tabPage1.Controls.Add(this.dataGridViewMovies);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(768, 400);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Movies";
@@ -154,7 +154,7 @@ namespace Project
             this.tabPage2.Controls.Add(this.dataGridViewShift);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(768, 400);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Work Shift";
@@ -229,7 +229,7 @@ namespace Project
             this.tabPage3.Controls.Add(this.dataGridViewSchedule);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(768, 400);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Movie Schedule";
@@ -263,10 +263,10 @@ namespace Project
             // 
             this.dataGridViewSchedule.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSchedule.Location = new System.Drawing.Point(0, 3);
+            this.dataGridViewSchedule.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewSchedule.Name = "dataGridViewSchedule";
             this.dataGridViewSchedule.RowHeadersWidth = 51;
-            this.dataGridViewSchedule.Size = new System.Drawing.Size(768, 306);
+            this.dataGridViewSchedule.Size = new System.Drawing.Size(768, 313);
             this.dataGridViewSchedule.TabIndex = 14;
             // 
             // MoviesWorkSchedule

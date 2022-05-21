@@ -45,10 +45,9 @@ namespace Project
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bauhaus 93", 24F);
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(100, 165);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(75, 134);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(398, 45);
+            this.label1.Size = new System.Drawing.Size(318, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Choose your cinema:";
             // 
@@ -56,10 +55,9 @@ namespace Project
             // 
             this.comboBoxLocations.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBoxLocations.FormattingEnabled = true;
-            this.comboBoxLocations.Location = new System.Drawing.Point(506, 185);
-            this.comboBoxLocations.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxLocations.Location = new System.Drawing.Point(400, 144);
             this.comboBoxLocations.Name = "comboBoxLocations";
-            this.comboBoxLocations.Size = new System.Drawing.Size(194, 24);
+            this.comboBoxLocations.Size = new System.Drawing.Size(146, 21);
             this.comboBoxLocations.TabIndex = 1;
             // 
             // selectCityButton
@@ -67,10 +65,9 @@ namespace Project
             this.selectCityButton.BackColor = System.Drawing.Color.DarkOrange;
             this.selectCityButton.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.selectCityButton.ForeColor = System.Drawing.Color.White;
-            this.selectCityButton.Location = new System.Drawing.Point(338, 248);
-            this.selectCityButton.Margin = new System.Windows.Forms.Padding(4);
+            this.selectCityButton.Location = new System.Drawing.Point(254, 202);
             this.selectCityButton.Name = "selectCityButton";
-            this.selectCityButton.Size = new System.Drawing.Size(143, 55);
+            this.selectCityButton.Size = new System.Drawing.Size(107, 45);
             this.selectCityButton.TabIndex = 2;
             this.selectCityButton.Text = "Select";
             this.selectCityButton.UseVisualStyleBackColor = false;
@@ -81,10 +78,9 @@ namespace Project
             this.buttonLogOut.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonLogOut.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.buttonLogOut.ForeColor = System.Drawing.Color.Black;
-            this.buttonLogOut.Location = new System.Drawing.Point(18, 333);
-            this.buttonLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonLogOut.Location = new System.Drawing.Point(14, 271);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(140, 53);
+            this.buttonLogOut.Size = new System.Drawing.Size(105, 43);
             this.buttonLogOut.TabIndex = 3;
             this.buttonLogOut.Text = "Log out";
             this.buttonLogOut.UseVisualStyleBackColor = false;
@@ -100,11 +96,9 @@ namespace Project
             this.groupBox1.Controls.Add(this.selectCityButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.groupBox1.Location = new System.Drawing.Point(111, 72);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(83, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(844, 404);
+            this.groupBox1.Size = new System.Drawing.Size(633, 328);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cinema Selection";
@@ -113,22 +107,22 @@ namespace Project
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(338, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(254, 18);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(143, 111);
+            this.pictureBox1.Size = new System.Drawing.Size(107, 90);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
             // Client
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Client";
             this.Text = "Cinema Selection";
             this.groupBox1.ResumeLayout(false);

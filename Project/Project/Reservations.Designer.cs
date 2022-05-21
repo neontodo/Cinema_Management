@@ -61,11 +61,10 @@ namespace Project
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(17, 16);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1033, 523);
+            this.tabControl1.Size = new System.Drawing.Size(775, 425);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -84,11 +83,10 @@ namespace Project
             this.tabPage1.Controls.Add(this.buttonReserve);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.dateTimePicker);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1025, 494);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(767, 399);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Reservations";
             // 
@@ -97,10 +95,9 @@ namespace Project
             this.buttonSearchByDay.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonSearchByDay.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearchByDay.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchByDay.Location = new System.Drawing.Point(109, 114);
-            this.buttonSearchByDay.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearchByDay.Location = new System.Drawing.Point(82, 93);
             this.buttonSearchByDay.Name = "buttonSearchByDay";
-            this.buttonSearchByDay.Size = new System.Drawing.Size(117, 45);
+            this.buttonSearchByDay.Size = new System.Drawing.Size(88, 37);
             this.buttonSearchByDay.TabIndex = 13;
             this.buttonSearchByDay.Text = "Search Movie";
             this.buttonSearchByDay.UseVisualStyleBackColor = false;
@@ -109,10 +106,9 @@ namespace Project
             // numberOfSeatsTextBox
             // 
             this.numberOfSeatsTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numberOfSeatsTextBox.Location = new System.Drawing.Point(349, 387);
-            this.numberOfSeatsTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.numberOfSeatsTextBox.Location = new System.Drawing.Point(269, 314);
             this.numberOfSeatsTextBox.Name = "numberOfSeatsTextBox";
-            this.numberOfSeatsTextBox.Size = new System.Drawing.Size(256, 22);
+            this.numberOfSeatsTextBox.Size = new System.Drawing.Size(193, 19);
             this.numberOfSeatsTextBox.TabIndex = 12;
             this.numberOfSeatsTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -121,10 +117,9 @@ namespace Project
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bauhaus 93", 18F);
             this.label5.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label5.Location = new System.Drawing.Point(343, 349);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(264, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(472, 34);
+            this.label5.Size = new System.Drawing.Size(371, 28);
             this.label5.TabIndex = 11;
             this.label5.Text = "Please select the number of seats:";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -133,10 +128,9 @@ namespace Project
             // 
             this.buttonBack.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonBack.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
-            this.buttonBack.Location = new System.Drawing.Point(71, 427);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBack.Location = new System.Drawing.Point(11, 358);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(117, 43);
+            this.buttonBack.Size = new System.Drawing.Size(88, 35);
             this.buttonBack.TabIndex = 10;
             this.buttonBack.Text = "Back";
             this.buttonBack.UseVisualStyleBackColor = false;
@@ -147,10 +141,9 @@ namespace Project
             this.button1.BackColor = System.Drawing.Color.DarkOrange;
             this.button1.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(109, 349);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(82, 284);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 45);
+            this.button1.Size = new System.Drawing.Size(88, 37);
             this.button1.TabIndex = 9;
             this.button1.Text = "Search Movie";
             this.button1.UseVisualStyleBackColor = false;
@@ -159,21 +152,20 @@ namespace Project
             // textBoxMovie
             // 
             this.textBoxMovie.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBoxMovie.Location = new System.Drawing.Point(57, 308);
-            this.textBoxMovie.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxMovie.Location = new System.Drawing.Point(43, 250);
             this.textBoxMovie.Name = "textBoxMovie";
-            this.textBoxMovie.Size = new System.Drawing.Size(256, 22);
+            this.textBoxMovie.Size = new System.Drawing.Size(193, 19);
             this.textBoxMovie.TabIndex = 8;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Bauhaus 93", 18F);
             this.label4.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label4.Location = new System.Drawing.Point(8, 270);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(6, 219);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(325, 34);
+            this.label4.Size = new System.Drawing.Size(257, 28);
             this.label4.TabIndex = 7;
             this.label4.Text = "Search movie by name:";
             // 
@@ -182,10 +174,9 @@ namespace Project
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bauhaus 93", 18F);
             this.label2.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label2.Location = new System.Drawing.Point(343, 26);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(375, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(332, 34);
+            this.label2.Size = new System.Drawing.Size(260, 28);
             this.label2.TabIndex = 6;
             this.label2.Text = "Please select the entry:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -194,11 +185,9 @@ namespace Project
             // 
             this.listBoxMovies.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listBoxMovies.FormattingEnabled = true;
-            this.listBoxMovies.ItemHeight = 16;
-            this.listBoxMovies.Location = new System.Drawing.Point(349, 70);
-            this.listBoxMovies.Margin = new System.Windows.Forms.Padding(4);
+            this.listBoxMovies.Location = new System.Drawing.Point(269, 57);
             this.listBoxMovies.Name = "listBoxMovies";
-            this.listBoxMovies.Size = new System.Drawing.Size(668, 260);
+            this.listBoxMovies.Size = new System.Drawing.Size(495, 212);
             this.listBoxMovies.TabIndex = 5;
             this.listBoxMovies.SelectedIndexChanged += new System.EventHandler(this.listBoxMovies_SelectedIndexChanged);
             // 
@@ -207,10 +196,9 @@ namespace Project
             this.buttonSearch.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonSearch.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.Location = new System.Drawing.Point(109, 200);
-            this.buttonSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonSearch.Location = new System.Drawing.Point(82, 162);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(117, 45);
+            this.buttonSearch.Size = new System.Drawing.Size(88, 37);
             this.buttonSearch.TabIndex = 4;
             this.buttonSearch.Text = "Details";
             this.buttonSearch.UseVisualStyleBackColor = false;
@@ -221,10 +209,9 @@ namespace Project
             this.buttonReserve.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonReserve.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.buttonReserve.ForeColor = System.Drawing.Color.White;
-            this.buttonReserve.Location = new System.Drawing.Point(404, 426);
-            this.buttonReserve.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonReserve.Location = new System.Drawing.Point(310, 346);
             this.buttonReserve.Name = "buttonReserve";
-            this.buttonReserve.Size = new System.Drawing.Size(117, 45);
+            this.buttonReserve.Size = new System.Drawing.Size(88, 37);
             this.buttonReserve.TabIndex = 2;
             this.buttonReserve.Text = "Reserve";
             this.buttonReserve.UseVisualStyleBackColor = false;
@@ -235,10 +222,9 @@ namespace Project
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bauhaus 93", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label1.Location = new System.Drawing.Point(8, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(6, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(325, 34);
+            this.label1.Size = new System.Drawing.Size(254, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Please select the date:";
             // 
@@ -246,10 +232,9 @@ namespace Project
             // 
             this.dateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
-            this.dateTimePicker.Location = new System.Drawing.Point(48, 70);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTimePicker.Location = new System.Drawing.Point(27, 57);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(209, 19);
             this.dateTimePicker.TabIndex = 0;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -260,11 +245,10 @@ namespace Project
             this.tabPage2.Controls.Add(this.buttonDeleteR);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.dataGridViewReservations);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1025, 494);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(767, 399);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Reservations List";
             // 
@@ -272,10 +256,9 @@ namespace Project
             // 
             this.buttonBackR.BackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonBackR.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
-            this.buttonBackR.Location = new System.Drawing.Point(71, 427);
-            this.buttonBackR.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonBackR.Location = new System.Drawing.Point(53, 347);
             this.buttonBackR.Name = "buttonBackR";
-            this.buttonBackR.Size = new System.Drawing.Size(117, 43);
+            this.buttonBackR.Size = new System.Drawing.Size(88, 35);
             this.buttonBackR.TabIndex = 11;
             this.buttonBackR.Text = "Back";
             this.buttonBackR.UseVisualStyleBackColor = false;
@@ -286,10 +269,9 @@ namespace Project
             this.buttonDeleteR.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonDeleteR.Font = new System.Drawing.Font("Bahnschrift Condensed", 16.2F, System.Drawing.FontStyle.Bold);
             this.buttonDeleteR.ForeColor = System.Drawing.Color.White;
-            this.buttonDeleteR.Location = new System.Drawing.Point(453, 427);
-            this.buttonDeleteR.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDeleteR.Location = new System.Drawing.Point(340, 347);
             this.buttonDeleteR.Name = "buttonDeleteR";
-            this.buttonDeleteR.Size = new System.Drawing.Size(117, 45);
+            this.buttonDeleteR.Size = new System.Drawing.Size(88, 37);
             this.buttonDeleteR.TabIndex = 2;
             this.buttonDeleteR.Text = "Delete";
             this.buttonDeleteR.UseVisualStyleBackColor = false;
@@ -300,10 +282,9 @@ namespace Project
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bauhaus 93", 18F);
             this.label3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label3.Location = new System.Drawing.Point(67, 22);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(50, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 34);
+            this.label3.Size = new System.Drawing.Size(151, 28);
             this.label3.TabIndex = 1;
             this.label3.Text = "Reservations:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -312,23 +293,21 @@ namespace Project
             // 
             this.dataGridViewReservations.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewReservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReservations.Location = new System.Drawing.Point(71, 64);
-            this.dataGridViewReservations.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewReservations.Location = new System.Drawing.Point(53, 52);
             this.dataGridViewReservations.Name = "dataGridViewReservations";
             this.dataGridViewReservations.RowHeadersWidth = 51;
-            this.dataGridViewReservations.Size = new System.Drawing.Size(887, 343);
+            this.dataGridViewReservations.Size = new System.Drawing.Size(665, 279);
             this.dataGridViewReservations.TabIndex = 0;
             this.dataGridViewReservations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Reservations
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Reservations";
             this.Text = "Reservations";
             this.tabControl1.ResumeLayout(false);

@@ -243,36 +243,10 @@ namespace ServiceTest
         [Test]
         public void DeleteMovie_Succesful()
         {
-            bool result=false;
-            int movieId = 62;   //not auto-increment??
-            ServiceReference3.ArrayOfString details = new ServiceReference3.ArrayOfString();
-            string title = "Test";
-            string director = "Testimon";
-            string cast = "Tests, Tests";
-            string duration = "120";
-            string genre = "horror test";
-            string price = "15";
-            string restrictions = "NR";
-            string description = "Test Description";
-            string rating = "8.3";
-            string releaseDate = "2014-01-01";
+            bool result;
+            int movieId = 1060;   //not auto-increment??
 
-            details.Add(title);
-            details.Add(director);
-            details.Add(cast);
-            details.Add(duration);
-            details.Add(genre);
-            details.Add(price);
-            details.Add(restrictions);
-            details.Add(description);
-            details.Add(rating);
-            details.Add(releaseDate);
-
-            bool add = service.AddMovie(details);
-
-            if(add == true) {
-                result = service.DeleteMovie(movieId);
-            }
+            result = service.DeleteMovie(movieId);
 
             Assert.That(result, Is.True);
         }

@@ -26,11 +26,11 @@ namespace Project
             confirmFlag = -1;
 
             dataGridViewReservations.Columns.Add("movieTitle", "Movie title");
-            dataGridViewReservations.Columns[0].Width = 325;
+            dataGridViewReservations.Columns[0].Width = 300;
             dataGridViewReservations.Columns.Add("date", "Date");
             dataGridViewReservations.Columns[1].Width = 165;
             dataGridViewReservations.Columns.Add("time", "Time");
-            dataGridViewReservations.Columns[2].Width = 45;
+            dataGridViewReservations.Columns[2].Width = 70;
             dataGridViewReservations.Columns.Add("numberOfSeats", "Number of seats");
             dataGridViewReservations.Columns[3].Width = 75;
             displayMovieDetailsByDate();
@@ -271,21 +271,29 @@ namespace Project
         {
             if (confirmFlag == 1)
             {
-                var reservationDetails = reservationsList.ElementAt(dataGridViewReservations.CurrentCell.RowIndex);
-                var reservationId = int.Parse(reservationDetails.Split(';').ElementAt(0));
-
-                if (service.DeleteReservation(reservationId))
+                var reservationIndex = dataGridViewReservations.CurrentCell.RowIndex;
+                if (reservationIndex < dataGridViewReservations.RowCount - 1)
                 {
-                    MessageBox.Show("Reservation deleted successfully.", "Success!");
-                    dataGridViewReservations.Rows.Clear();
-                    displayAllReservations();
+                    var reservationDetails = reservationsList.ElementAt(reservationIndex);
+                    var reservationId = int.Parse(reservationDetails.Split(';').ElementAt(0));
+
+                    if (service.DeleteReservation(reservationId))
+                    {
+                        MessageBox.Show("Reservation deleted successfully.", "Success!");
+                        dataGridViewReservations.Rows.Clear();
+                        displayAllReservations();
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred. Please try again.", "Error!");
+                    }
+
+                    confirmFlag = -1;
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred. Please try again.", "Error!");
+                    MessageBox.Show("Please select a valid row", "Error!");
                 }
-
-                confirmFlag = -1;
             }
 
             if (confirmFlag == 0)

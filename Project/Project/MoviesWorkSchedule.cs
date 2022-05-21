@@ -182,27 +182,27 @@ namespace Project
         private void initializeDataGridViewMovies()
         {
             dataGridViewMovies.Columns.Add("movieId", "Movie ID");
-            dataGridViewMovies.Columns[0].Width = 100;
+            dataGridViewMovies.Columns[0].Width = 80;
             dataGridViewMovies.Columns.Add("name", "Movie title");
-            dataGridViewMovies.Columns[1].Width = 100;
+            dataGridViewMovies.Columns[1].Width = 150;
             dataGridViewMovies.Columns.Add("director", "Director");
-            dataGridViewMovies.Columns[2].Width = 100;
+            dataGridViewMovies.Columns[2].Width = 120;
             dataGridViewMovies.Columns.Add("cast", "Cast");
-            dataGridViewMovies.Columns[3].Width = 100;
+            dataGridViewMovies.Columns[3].Width = 200;
             dataGridViewMovies.Columns.Add("duration", "Duration");
-            dataGridViewMovies.Columns[4].Width = 100;
+            dataGridViewMovies.Columns[4].Width = 80;
             dataGridViewMovies.Columns.Add("genre", "Genre");
-            dataGridViewMovies.Columns[5].Width = 100;
+            dataGridViewMovies.Columns[5].Width = 150;
             dataGridViewMovies.Columns.Add("price", "Price");
-            dataGridViewMovies.Columns[6].Width = 100;
+            dataGridViewMovies.Columns[6].Width = 60;
             dataGridViewMovies.Columns.Add("restrictions", "Restrictions");
-            dataGridViewMovies.Columns[7].Width = 100;
+            dataGridViewMovies.Columns[7].Width = 90;
             dataGridViewMovies.Columns.Add("description", "Description");
-            dataGridViewMovies.Columns[8].Width = 100;
+            dataGridViewMovies.Columns[8].Width = 130;
             dataGridViewMovies.Columns.Add("rating", "Rating");
-            dataGridViewMovies.Columns[9].Width = 100;
+            dataGridViewMovies.Columns[9].Width = 60;
             dataGridViewMovies.Columns.Add("releaseDate", "Release date");
-            dataGridViewMovies.Columns[10].Width = 100;
+            dataGridViewMovies.Columns[10].Width = 75;
 
             displayMoviesDetails();
         }
@@ -210,11 +210,11 @@ namespace Project
         private void initializeDataGridViewShifts()
         {
             dataGridViewShift.Columns.Add("startTime", "Starting time");
-            dataGridViewShift.Columns[0].Width = 200;
+            dataGridViewShift.Columns[0].Width = 240;
             dataGridViewShift.Columns.Add("duration", "Work hours");
-            dataGridViewShift.Columns[1].Width = 200;
+            dataGridViewShift.Columns[1].Width = 240;
             dataGridViewShift.Columns.Add("name", "Employee name");
-            dataGridViewShift.Columns[2].Width = 200;
+            dataGridViewShift.Columns[2].Width = 240;
 
             displayShiftsDetails();
         }
@@ -222,11 +222,11 @@ namespace Project
         private void initializeDataGridViewSchdule()
         {
             dataGridViewSchedule.Columns.Add("movieId", "Movie ID");
-            dataGridViewSchedule.Columns[0].Width = 200;
+            dataGridViewSchedule.Columns[0].Width = 150;
             dataGridViewSchedule.Columns.Add("time", "Starting hour");
-            dataGridViewSchedule.Columns[1].Width = 200;
+            dataGridViewSchedule.Columns[1].Width = 275;
             dataGridViewSchedule.Columns.Add("weekDay", "Day of week");
-            dataGridViewSchedule.Columns[2].Width = 200;
+            dataGridViewSchedule.Columns[2].Width = 275;
 
             displayScheduleDetails();
         }
@@ -399,18 +399,24 @@ namespace Project
             if (confirmFlag == 1)
             {
                 var entryIndex = dataGridViewMovies.CurrentCell.RowIndex;
-                var movieId = int.Parse(dataGridViewMovies.Rows[entryIndex].Cells[0].Value.ToString());
-
-                if (service.DeleteMovie(movieId))
+                if (entryIndex < dataGridViewMovies.RowCount - 1)
                 {
-                    MessageBox.Show("Movie deleted successfully.", "Success!");
-                }
-                else
-                {
-                    MessageBox.Show("An error occurred (movie not found).", "Error!");
-                }
+                    var movieId = int.Parse(dataGridViewMovies.Rows[entryIndex].Cells[0].Value.ToString());
 
-                confirmFlag = -1;
+                    if (service.DeleteMovie(movieId))
+                    {
+                        MessageBox.Show("Movie deleted successfully.", "Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred (movie not found).", "Error!");
+                    }
+
+                    confirmFlag = -1;
+                } else
+                {
+                    MessageBox.Show("Please select a valid row", "Error!");
+                }
             }
 
             if (confirmFlag == 0)
@@ -419,6 +425,7 @@ namespace Project
 
                 confirmFlag = -1;
             }
+
 
             dataGridViewMovies.Rows.Clear();
             displayMoviesDetails();
@@ -508,18 +515,25 @@ namespace Project
             if (confirmFlag == 1)
             {
                 var entryIndex = dataGridViewShift.CurrentCell.RowIndex;
-                var shiftId = int.Parse(shiftsList.ElementAt(entryIndex).Split(';').ElementAt(0));
-
-                if (service.DeleteWorkShift(shiftId))
+                if (entryIndex < dataGridViewShift.RowCount - 1)
                 {
-                    MessageBox.Show("Work shift deleted successfully.", "Success!");
+                    var shiftId = int.Parse(shiftsList.ElementAt(entryIndex).Split(';').ElementAt(0));
+
+                    if (service.DeleteWorkShift(shiftId))
+                    {
+                        MessageBox.Show("Work shift deleted successfully.", "Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("An error occurred (movie not found).", "Error!");
+                    }
+
+                    confirmFlag = -1;
                 }
                 else
                 {
-                    MessageBox.Show("An error occurred (movie not found).", "Error!");
+                    MessageBox.Show("Please select a valid row", "Error!");
                 }
-
-                confirmFlag = -1;
             }
 
             if (confirmFlag == 0)

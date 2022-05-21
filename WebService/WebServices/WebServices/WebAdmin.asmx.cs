@@ -176,6 +176,7 @@ namespace WebServices
         {
             InitializeDatabseConnection();
 
+
             var movies = moviesDataSet.Tables["Movies"].Rows;
             var check = false;
 
@@ -194,10 +195,11 @@ namespace WebServices
                 return false;
             }
 
+
             sqlConnection.Open();
 
             SqlCommand deleteFromReservations = new SqlCommand("DELETE FROM Reservations WHERE MovieId = @movieId", sqlConnection);
-            SqlCommand eraseFromSchedules = new SqlCommand("UPDATE Schedules SET MovieId = NULL WHERE MovieId = @movieId");
+            SqlCommand eraseFromSchedules = new SqlCommand("UPDATE Schedules SET MovieId = NULL WHERE MovieId = @movieId", sqlConnection);
             SqlCommand deleteFromMovies = new SqlCommand("DELETE FROM Movies WHERE MovieId = @movieId", sqlConnection);
             deleteFromReservations.Parameters.AddWithValue("@movieId", movieId);
             eraseFromSchedules.Parameters.AddWithValue("@movieId", movieId);
@@ -403,7 +405,15 @@ namespace WebServices
             foreach (DataRow schedule in schedules)
             {
                 var currentScheduleId = int.Parse(schedule.ItemArray[0].ToString());
-                var currentScheduleMovieId = int.Parse(schedule.ItemArray[1].ToString());
+                string currentScheduleMovieId;
+                if (schedule.ItemArray[1] == null)
+                {
+                    currentScheduleMovieId = "NULL";
+                }
+                else
+                {
+                    currentScheduleMovieId = schedule.ItemArray[1].ToString();
+                }
                 var currentScheduleTime = schedule.ItemArray[2].ToString();
                 var currentScheduleWeekDay = schedule.ItemArray[3].ToString();
                 var currentScheduleCinemaId = int.Parse(schedule.ItemArray[4].ToString());
