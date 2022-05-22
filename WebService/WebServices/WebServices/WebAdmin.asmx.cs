@@ -408,15 +408,7 @@ namespace WebServices
             foreach (DataRow schedule in schedules)
             {
                 var currentScheduleId = int.Parse(schedule.ItemArray[0].ToString());
-                string currentScheduleMovieId;
-                if (schedule.ItemArray[1] == null)
-                {
-                    currentScheduleMovieId = "NULL";
-                }
-                else
-                {
-                    currentScheduleMovieId = schedule.ItemArray[1].ToString();
-                }
+                var currentScheduleMovieId = schedule.ItemArray[1].ToString();
                 var currentScheduleTime = schedule.ItemArray[2].ToString();
                 var currentScheduleWeekDay = schedule.ItemArray[3].ToString();
                 var currentScheduleCinemaId = int.Parse(schedule.ItemArray[4].ToString());
